@@ -3,199 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI TiBeB Learning Hub</title>
+  <title>AI TiBeB</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-
-    body{background:#ffffff;color:#1a1a1a}
-
-    /* BACKGROUND PATTERN (TiBeB inspired dots) */
-    .pattern{
-      position:absolute;
-      width:100%;
-      height:100%;
-      background-image:radial-gradient(circle,#0077ff22 2px,transparent 2px);
-      background-size:40px 40px;
-      opacity:0.3;
-      z-index:0;
-    }
-
-    section{position:relative;padding:100px 20px}
-
-    .section-inner{position:relative;z-index:2}
-
-    .section-title{text-align:center;font-size:32px;margin-bottom:40px}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      max-width:1100px;
-      margin:auto
-    }
-
-    .card{
-      background:#fff;
-      padding:24px;
-      border-radius:18px;
-      border:1px solid #eee;
-      transition:.3s;
-      box-shadow:0 8px 20px rgba(0,0,0,0.05)
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 12px 30px rgba(0,0,0,0.1)
-    }
-
-    .card h3{color:#0077ff;margin-bottom:10px}
-
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      overflow:hidden;
-      background:linear-gradient(120deg,#f8fbff,#eef5ff);
-      border-bottom-left-radius:80px;
-      border-bottom-right-radius:80px;
-    }
-
-    .hero-content{max-width:850px;z-index:2}
-
-    .logo{font-size:64px;font-weight:800;color:#0a2540}
-
-    .tagline{
-      margin-top:20px;
-      font-size:20px;
-      color:#444;
-      line-height:1.6
-    }
-
-    .highlight{color:#0077ff}
-
-    .buttons{margin-top:30px}
-
-    .btn{
-      display:inline-block;
-      padding:12px 22px;
-      margin:5px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .btn-primary{background:#0077ff;color:#fff}
-    .btn-secondary{border:1px solid #0077ff;color:#0077ff}
-
-    /* CURVED SECTIONS */
-    .curve-top{
-      border-top-left-radius:80px;
-      border-top-right-radius:80px;
-    }
-
-    .curve-bottom{
-      border-bottom-left-radius:80px;
-      border-bottom-right-radius:80px;
-    }
-
-    .light-bg{background:#f7f9fc}
-    .soft-gradient{background:linear-gradient(120deg,#f0f7ff,#ffffff)}
-
-    /* CTA NEW STYLE */
-    .cta{
-      text-align:center;
-      margin:60px auto;
-      max-width:1000px;
-      padding:60px 20px;
-      border-radius:30px;
-      background:linear-gradient(135deg,#ffffff,#eef6ff);
-      border:1px solid #e3ecff;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05)
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      color:#777
-    }
-
-    @media(max-width:600px){
-      .logo{font-size:40px}
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- HERO -->
 <section class="hero">
   <div class="pattern"></div>
-  <div class="hero-content">
+  <div class="section-inner">
+
     <div class="logo">AI TiBeB</div>
+
     <p class="tagline">
-      Learn and use <span class="highlight">Artificial Intelligence</span> in <b>Amharic and local languages</b> — designed for Ethiopia.
+      Learn and use <span class="highlight">Artificial Intelligence</span> in 
+      <b>Amharic and local languages</b> — designed for real use in Ethiopia.
     </p>
+
     <div class="buttons">
       <a href="#learn" class="btn btn-primary">Start Learning</a>
       <a href="#tools" class="btn btn-secondary">Explore Tools</a>
     </div>
+
   </div>
 </section>
 
-<!-- LEARNING -->
-<section id="learn" class="soft-gradient curve-top curve-bottom">
+<!-- LEARNING PROGRAMS -->
+<section id="learn" class="soft-gradient">
   <div class="pattern"></div>
   <div class="section-inner">
+
     <h2 class="section-title">📚 Learning Programs</h2>
+
     <div class="grid">
-      <div class="card"><h3>AI Basics (Amharic)</h3><p>Beginner-friendly lessons in local language.</p></div>
-      <div class="card"><h3>Machine Learning</h3><p>Understand how AI learns.</p></div>
-      <div class="card"><h3>Data & AI</h3><p>Learn how data powers AI.</p></div>
-      <div class="card"><h3>AI for Ethiopia</h3><p>Apply AI in real sectors.</p></div>
+
+      <div class="card">
+        <h3>AI Basics (Amharic)</h3>
+        <p>መሰረታዊ የAI እውቀት — simple and practical introduction.</p>
+      </div>
+
+      <div class="card">
+        <h3>Machine Learning</h3>
+        <p>Understand how machines learn using real-world examples.</p>
+      </div>
+
+      <div class="card">
+        <h3>Data & AI</h3>
+        <p>Learn how datasets are created and used in AI systems.</p>
+      </div>
+
+      <div class="card">
+        <h3>AI for Ethiopia</h3>
+        <p>Apply AI in agriculture, health, education, and services.</p>
+      </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- TOOLS -->
-<section id="tools" class="light-bg curve-top curve-bottom">
+<section id="tools" class="light-bg">
   <div class="pattern"></div>
   <div class="section-inner">
+
     <h2 class="section-title">🛠️ AI Tools</h2>
+
     <div class="grid">
-      <div class="card"><h3>Everyday Tools</h3><p>Translate, write, summarize.</p></div>
-      <div class="card"><h3>Researchers</h3><p>Datasets & experiments.</p></div>
-      <div class="card"><h3>Creators</h3><p>Content generation tools.</p></div>
+
+      <div class="card">
+        <h3>Everyday Tools</h3>
+        <p>Translate, summarize, and write in Amharic and local languages.</p>
+      </div>
+
+      <div class="card">
+        <h3>For Researchers</h3>
+        <p>Access datasets, annotation tools, and experiment with AI models.</p>
+      </div>
+
+      <div class="card">
+        <h3>For Creators</h3>
+        <p>Create scripts, videos, and multilingual content using AI.</p>
+      </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- CHALLENGES -->
-<section class="curve-top">
+<section>
   <div class="pattern"></div>
   <div class="section-inner">
+
     <h2 class="section-title">Making AI Work in Ethiopia</h2>
+
     <div class="grid">
-      <div class="card"><h3>Language</h3><p>Support for local languages.</p></div>
-      <div class="card"><h3>Data</h3><p>Need open datasets.</p></div>
-      <div class="card"><h3>Access</h3><p>Simple & mobile tools.</p></div>
-      <div class="card"><h3>Infrastructure</h3><p>Connectivity challenges.</p></div>
+
+      <div class="card">
+        <h3>Language Gap</h3>
+        <p>Limited support for Amharic and local languages in AI systems.</p>
+      </div>
+
+      <div class="card">
+        <h3>Data Scarcity</h3>
+        <p>Lack of structured, open, and accessible datasets.</p>
+      </div>
+
+      <div class="card">
+        <h3>Accessibility</h3>
+        <p>Need simple, mobile-friendly, and affordable tools.</p>
+      </div>
+
+      <div class="card">
+        <h3>Infrastructure</h3>
+        <p>Connectivity and computing limitations affect adoption.</p>
+      </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h2>🚀 Build AI in Local Languages</h2>
-  <p>Join the movement to make AI accessible across Ethiopia.</p>
-  <div class="buttons">
-    <a href="#learn" class="btn btn-primary">Start Learning</a>
+  <div class="section-inner">
+
+    <h2>🚀 Build AI in Local Languages</h2>
+
+    <p>
+      Join AI TiBeB to learn, build, and contribute to inclusive AI in Ethiopia and across Africa.
+    </p>
+
+    <div class="buttons">
+      <a href="#learn" class="btn btn-primary">Start Learning</a>
+    </div>
+
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2026 AI TiBeB • Inclusive AI for Ethiopia
 </footer>
