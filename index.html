@@ -1,25 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI TiBeB</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI TiBeB Learning Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Inter,sans-serif;
+    }
+
+    body{
+      background:#0b1220;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 20px;
+      position:relative;
+      background:radial-gradient(circle at top,#1b2a4a,#0b1220 60%);
+    }
+
+    .glow{
+      position:absolute;
+      width:420px;
+      height:420px;
+      background:rgba(0,200,255,0.18);
+      filter:blur(120px);
+      border-radius:50%;
+      top:15%;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .hero-content{
+      z-index:2;
+      max-width:900px;
+    }
+
+    .logo{
+      font-size:64px;
+      font-weight:800;
+    }
+
+    .tagline{
+      margin-top:20px;
+      font-size:20px;
+      color:#b8c7e0;
+      line-height:1.6;
+    }
+
+    .highlight{color:#00d4ff;}
+
+    .buttons{margin-top:30px;}
+
+    .btn{
+      display:inline-block;
+      padding:12px 22px;
+      margin:5px;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .btn-primary{background:#00d4ff;color:#0b1220;}
+    .btn-secondary{border:1px solid #00d4ff;color:#00d4ff;}
+
+    /* SECTIONS */
+    section{
+      padding:80px 20px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:32px;
+      margin-bottom:40px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .card{
+      background:#16233d;
+      padding:22px;
+      border-radius:16px;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      background:#1c2c4d;
+    }
+
+    .card h3{
+      color:#00d4ff;
+      margin-bottom:10px;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      background:#0f1a30;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#7f8da9;
+      background:#0b1220;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border:1px solid #00d4ff;
+      border-radius:20px;
+      font-size:12px;
+      margin-top:10px;
+      color:#00d4ff;
+    }
+
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>AI TiBeB</h1>
-    <p>Making AI accessible and usable in local languages</p>
-</header>
+<!-- HERO -->
+<section class="hero">
+  <div class="glow"></div>
+  <div class="hero-content">
+    <div class="logo">AI TiBeB</div>
 
-<section>
-    <h2>About</h2>
-    <p>
-        AI TiBeB is an initiative focused on enabling inclusive AI by supporting local languages,
-        datasets, and tools across Africa.
+    <p class="tagline">
+      Learning and building <span class="highlight">Artificial Intelligence</span> in 
+      <b>Amharic and local African languages</b> — making AI understandable, usable, and accessible for everyone in Ethiopia.
     </p>
+
+    <div class="buttons">
+      <a href="#learn" class="btn btn-primary">Start Learning</a>
+      <a href="#tools" class="btn btn-secondary">Explore Tools</a>
+    </div>
+
+    <div class="pill">መማር AI • Learn AI in Local Languages</div>
+  </div>
 </section>
+
+<!-- LEARNING PROGRAMS -->
+<section id="learn">
+  <h2 class="section-title">📚 Short Learning Programs</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>AI Basics (Amharic)</h3>
+      <p>Simple introduction to AI concepts explained in Amharic for beginners.</p>
+    </div>
+
+    <div class="card">
+      <h3>Machine Learning Fundamentals</h3>
+      <p>Understand how machines learn using real-world African examples.</p>
+    </div>
+
+    <div class="card">
+      <h3>Data for AI</h3>
+      <p>Learn how datasets are created, labeled, and used for AI systems.</p>
+    </div>
+
+    <div class="card">
+      <h3>AI for Problem Solving</h3>
+      <p>Apply AI to agriculture, health, education, and government services.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <h2 class="section-title">🛠️ AI Tools for Everyone</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Daily Use Tools</h3>
+      <p>Translation, summarization, writing help in Amharic & local languages.</p>
+    </div>
+
+    <div class="card">
+      <h3>Researchers</h3>
+      <p>Dataset access, annotation tools, and AI model experimentation kits.</p>
+    </div>
+
+    <div class="card">
+      <h3>Content Creators</h3>
+      <p>AI tools for script writing, video ideas, and multilingual content creation.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ETHIOPIA AI CHALLENGES -->
+<section>
+  <h2 class="section-title">🇪🇹 Making AI Work in Ethiopia</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Language Gap</h3>
+      <p>Most AI systems don’t support Amharic and other local languages well.</p>
+    </div>
+
+    <div class="card">
+      <h3>Data Scarcity</h3>
+      <p>Lack of structured, open datasets limits AI development locally.</p>
+    </div>
+
+    <div class="card">
+      <h3>Accessibility</h3>
+      <p>Many users lack simplified tools and AI literacy support.</p>
+    </div>
+
+    <div class="card">
+      <h3>Infrastructure</h3>
+      <p>Limited computing resources and connectivity challenges.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="section-title">🚀 Build the Future of AI in Local Languages</h2>
+  <p>Join AI TiBeB to learn, build, and contribute to inclusive AI in Africa.</p>
+  <div class="buttons">
+    <a href="#learn" class="btn btn-primary">Start Learning</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 AI TiBeB • Built for inclusive AI in Ethiopia & Africa
+</footer>
 
 </body>
 </html>
