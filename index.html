@@ -3,683 +3,533 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI TiBeB • Inclusive AI for Ethiopia</title>
+  <meta name="description" content="AI TiBeB: Learn Artificial Intelligence in Amharic and Ethiopian local languages. Free courses, tools, and resources for everyone.">
+  <title>AI TiBeB • ማሰብ — AI in Your Language</title>
+  
+  <!-- Google Fonts: Inter + Noto Sans Ethiopic -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ethiopia-green: #078930;
-      --ethiopia-yellow: #fcdd09;
-      --ethiopia-red: #da121a;
-      --deep-navy: #0a0e17;
-      --midnight: #121826;
-      --void: #05070a;
-      --glass: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --text-primary: #ffffff;
-      --text-secondary: rgba(255, 255, 255, 0.85);
-      --text-muted: rgba(255, 255, 255, 0.6);
-      --accent-glow: rgba(252, 221, 9, 0.3);
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 0 40px rgba(252, 221, 9, 0.15);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', 'Noto Sans Ethiopic', system-ui, sans-serif;
-      background: var(--void);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(7, 137, 48, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(218, 18, 26, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(252, 221, 9, 0.05) 0%, transparent 60%);
-    }
-
-    /* Ethiopian Pattern Overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20h10v10H20zm40 0h10v10H60zm40 0h10v10h-10zM20 60h10v10H20zm40 0h10v10H60zm40 0h10v10h-10zM20 100h10v10H20zm40 0h10v10H60zm40 0h10v10h-10z' fill='%23fcdd09' fill-opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
-
-    /* Animated Floating Elements */
-    .floating {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(40px);
-      z-index: 1;
-      animation: float 20s infinite ease-in-out;
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .floating.green { background: var(--ethiopia-green); width: 400px; height: 400px; top: -100px; left: -100px; animation-delay: 0s; }
-    .floating.yellow { background: var(--ethiopia-yellow); width: 300px; height: 300px; bottom: -50px; right: 10%; animation-delay: -5s; }
-    .floating.red { background: var(--ethiopia-red); width: 350px; height: 350px; top: 40%; left: 80%; animation-delay: -10s; }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(20px, -30px) scale(1.05); }
-      50% { transform: translate(-15px, 20px) scale(0.95); }
-      75% { transform: translate(30px, 10px) scale(1.02); }
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    /* Header / Logo */
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, var(--ethiopia-green), var(--ethiopia-yellow), var(--ethiopia-red));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .logo::after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--ethiopia-green), var(--ethiopia-yellow), var(--ethiopia-red));
-      border-radius: 2px;
-      opacity: 0.8;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 4rem;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.85) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, var(--ethiopia-yellow), #ffb300);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 600;
-      position: relative;
-    }
-    .highlight::after {
-      content: "";
-      position: absolute;
-      bottom: 2px;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background: var(--accent-glow);
-      border-radius: 4px;
-      z-index: -1;
-      opacity: 0.6;
-    }
-
-    /* Buttons */
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .btn {
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--ethiopia-green), #066d26);
-      color: white;
-      box-shadow: 0 10px 30px rgba(7, 137, 48, 0.4);
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(7, 137, 48, 0.6), var(--shadow-glow);
-    }
-    .btn-primary::after {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-    .btn-primary:hover::after { left: 100%; }
-
-    .btn-secondary {
-      background: var(--glass);
-      color: var(--text-primary);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(12px);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-3px);
-      border-color: var(--ethiopia-yellow);
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      text-align: center;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .section-title::after {
-      content: "";
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--ethiopia-green), var(--ethiopia-yellow), var(--ethiopia-red));
-      border-radius: 2px;
-    }
-
-    /* Grid Layouts */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    /* Glass Cards */
-    .card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      backdrop-filter: blur(20px);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--ethiopia-green), var(--ethiopia-yellow), var(--ethiopia-red));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(252, 221, 9, 0.4);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-    .card:hover::before { opacity: 1; }
-
-    .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    /* Amharic Text Styling */
-    .amharic {
-      font-family: 'Noto Sans Ethiopic', sans-serif;
-      font-weight: 600;
-      color: var(--ethiopia-yellow);
-    }
-
-    /* Challenges Section - Unique Layout */
-    .challenges-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .challenge-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border-left: 4px solid var(--ethiopia-red);
-      padding: 1.75rem;
-      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-      transition: var(--transition);
-    }
-    .challenge-card:hover {
-      border-left-color: var(--ethiopia-yellow);
-      transform: translateX(5px);
-    }
-    .challenge-card.green { border-left-color: var(--ethiopia-green); }
-    .challenge-card.yellow { border-left-color: var(--ethiopia-yellow); }
-
-    /* CTA Section */
-    .cta {
-      background: linear-gradient(135deg, var(--midnight), var(--deep-navy));
-      border-radius: var(--radius-xl);
-      margin: 4rem 2rem;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-glow);
-    }
-    .cta::before {
-      content: "";
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(252,221,9,0.1) 0%, transparent 70%);
-      animation: pulse 8s infinite ease-in-out;
-      pointer-events: none;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-    }
-    .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    .cta p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: var(--text-secondary);
-      position: relative;
-    }
-    .cta .buttons { position: relative; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 0 4rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      border-top: 1px solid var(--glass-border);
-      margin-top: 2rem;
-      position: relative;
-    }
-    footer::before {
-      content: "🇪🇹";
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--void);
-      padding: 0 1rem;
-      font-size: 1.2rem;
-    }
-
-    /* Scroll Animations */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      section { padding: 4rem 0; }
-      .hero { min-height: auto; padding: 5rem 0 3rem; }
-      .hero h1 { font-size: 2.5rem; }
-      .tagline { font-size: 1.1rem; }
-      .buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 300px; justify-content: center; }
-      .cta { margin: 2rem 1rem; padding: 3rem 2rem; }
-      .section-title { font-size: 1.8rem; }
-    }
-
-    /* Decorative Divider */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-      margin: 3rem 0;
-      position: relative;
-    }
-    .divider::after {
-      content: "✦";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--void);
-      padding: 0 1rem;
-      color: var(--ethiopia-yellow);
-      font-size: 1.2rem;
-    }
-
-    /* Custom Cursor for Desktop */
-    @media (min-width: 1024px) {
-      body { cursor: none; }
-      .cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        border: 2px solid var(--ethiopia-yellow);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s ease, width 0.2s, height 0.2s;
-        z-index: 9999;
-        mix-blend-mode: difference;
-      }
-      .cursor-follower {
-        position: fixed;
-        width: 40px;
-        height: 40px;
-        background: rgba(252, 221, 9, 0.15);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease;
-        z-index: 9998;
-        filter: blur(8px);
-      }
-      a:hover ~ .cursor, button:hover ~ .cursor,
-      .card:hover ~ .cursor {
-        width: 50px;
-        height: 50px;
-        border-color: var(--ethiopia-green);
-        background: rgba(7, 137, 48, 0.1);
-      }
-    }
-  </style>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Floating Background Elements -->
-  <div class="floating green"></div>
-  <div class="floating yellow"></div>
-  <div class="floating red"></div>
-  
-  <!-- Custom Cursor (Desktop) -->
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
+  <!-- Background Decorative Elements -->
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="pattern-overlay"></div>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="logo">✦ AI TiBeB</div>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="AI TiBeB Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AI TiBeB</span>
+        <span class="logo-sub">ማሰብ</span>
+      </a>
       
-      <h1>Empowering Ethiopia Through <span class="highlight">Inclusive AI</span></h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#learn">Learn</a>
+        <a href="#tools">Tools</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#community">Community</a>
+      </nav>
       
-      <p class="tagline">
-        Learn and build <span class="highlight">Artificial Intelligence</span> in 
-        <span class="amharic">አማርኛ</span> and local languages — designed for real impact across Ethiopia.
-      </p>
-
-      <div class="buttons">
-        <a href="#learn" class="btn btn-primary">🚀 Start Learning</a>
-        <a href="#tools" class="btn btn-secondary">🛠️ Explore Tools</a>
-      </div>
+      <button class="lang-toggle" aria-label="Toggle language">
+        <span class="lang-active">EN</span> / <span class="lang-alt">አማ</span>
+      </button>
     </div>
-  </section>
+  </header>
 
-  <div class="divider"></div>
+  <main id="main-content">
 
-  <!-- LEARNING PROGRAMS -->
-  <section id="learn">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">📚 Learning Programs</h2>
-
-      <div class="grid">
-        <div class="card animate-on-scroll">
-          <h3>AI Basics <span class="amharic">(አማርኛ)</span></h3>
-          <p><span class="amharic">መሰረታዊ የAI እውቀት</span> — simple, practical introduction to artificial intelligence in your language.</p>
-        </div>
-
-        <div class="card animate-on-scroll">
-          <h3>Machine Learning</h3>
-          <p>Understand how machines learn using Ethiopian-relevant examples: agriculture, health, and local business.</p>
-        </div>
-
-        <div class="card animate-on-scroll">
-          <h3>Data & AI</h3>
-          <p>Learn how datasets are created, curated, and used to train AI systems that understand our context.</p>
-        </div>
-
-        <div class="card animate-on-scroll">
-          <h3>AI for Ethiopia</h3>
-          <p>Apply AI solutions in agriculture, healthcare, education, and public services — built for our realities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- TOOLS -->
-  <section id="tools">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">🛠️ AI Tools</h2>
-
-      <div class="grid">
-        <div class="card animate-on-scroll">
-          <h3>Everyday Tools</h3>
-          <p>Translate, summarize, and create content in Amharic, Oromo, Tigrinya, and other local languages — instantly.</p>
-        </div>
-
-        <div class="card animate-on-scroll">
-          <h3>For Researchers</h3>
-          <p>Access curated datasets, annotation tools, and sandbox environments to experiment with Ethiopian-language AI models.</p>
-        </div>
-
-        <div class="card animate-on-scroll">
-          <h3>For Creators</h3>
-          <p>Generate scripts, videos, educational content, and multilingual media using AI trained on Ethiopian contexts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CHALLENGES -->
-  <section>
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">🇪🇹 Making AI Work in Ethiopia</h2>
-
-      <div class="challenges-grid">
-        <div class="challenge-card green animate-on-scroll">
-          <h3>Language Gap</h3>
-          <p>Limited support for Amharic and 80+ local languages in global AI systems.</p>
-        </div>
-
-        <div class="challenge-card yellow animate-on-scroll">
-          <h3>Data Scarcity</h3>
-          <p>Lack of structured, open, and culturally relevant datasets for training.</p>
-        </div>
-
-        <div class="challenge-card animate-on-scroll">
-          <h3>Accessibility</h3>
-          <p>Need for simple, mobile-first, low-bandwidth, and affordable AI tools.</p>
-        </div>
-
-        <div class="challenge-card red animate-on-scroll">
-          <h3>Infrastructure</h3>
-          <p>Connectivity gaps and computing limitations that affect real-world adoption.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section>
-    <div class="container">
-      <div class="cta animate-on-scroll">
-        <h2>🚀 Build AI in Local Languages</h2>
-        <p>
-          Join AI TiBeB to learn, build, and contribute to inclusive AI that reflects Ethiopia's diversity, languages, and ambitions.
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-badge">🇪🇹 Made for Ethiopia</div>
+        
+        <h1 class="hero-title">
+          Learn AI in <span class="highlight">Your Language</span>
+        </h1>
+        
+        <p class="hero-tagline">
+          <span class="amharic">አርቲፊሻል ኢንተለጀንስ በአማርኛ እና በሌሎች የኢትዮጵያ ቋንቋዎች</span><br>
+          Free, practical AI education and tools designed for Ethiopian learners, creators, and innovators.
         </p>
-        <div class="buttons">
-          <a href="#learn" class="btn btn-primary">✨ Start Your Journey</a>
+
+        <div class="hero-cta">
+          <a href="#learn" class="btn btn-primary">
+            <span class="btn-icon">📚</span>
+            Start Learning — ክፍት ነው
+          </a>
+          <a href="#tools" class="btn btn-secondary">
+            <span class="btn-icon">🛠️</span>
+            Try Tools — ሞክር
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Languages Supported</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Free & Open</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">📱</span>
+            <span class="stat-label">Mobile-First</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- LEARNING PROGRAMS -->
+    <section id="learn" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-icon">📚</span>
+            Short Learning Programs
+          </h2>
+          <p class="section-subtitle">
+            <span class="amharic">አጭር እና ተግባራዊ የAI ኮርሶች</span><br>
+            Bite-sized courses in Amharic, Oromo, Tigrinya & Sidama — learn at your pace.
+          </p>
+        </div>
+
+        <div class="programs-grid">
+          
+          <!-- Program Card 1 -->
+          <article class="program-card">
+            <div class="card-badge beginner">Beginner</div>
+            <h3>AI Basics <span class="amharic">(መሰረት)</span></h3>
+            <p class="program-desc">
+              What is AI? How does it work? Learn core concepts with Ethiopian examples — no coding needed.
+            </p>
+            <ul class="program-details">
+              <li>⏱️ 3 lessons • 45 min total</li>
+              <li>🗣️ Amharic + English subtitles</li>
+              <li>📥 Downloadable PDF notes</li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
+          </article>
+
+          <!-- Program Card 2 -->
+          <article class="program-card">
+            <div class="card-badge intermediate">Practical</div>
+            <h3>AI for Daily Life <span class="amharic">(ለዕለት ተዕለት)</span></h3>
+            <p class="program-desc">
+              Use AI to translate documents, summarize news, write messages, and organize tasks — in your language.
+            </p>
+            <ul class="program-details">
+              <li>⏱️ 5 lessons • 1.5 hours</li>
+              <li>🌐 Works offline on mobile</li>
+              <li>🔧 Hands-on tool practice</li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
+          </article>
+
+          <!-- Program Card 3 -->
+          <article class="program-card">
+            <div class="card-badge advanced">For Builders</div>
+            <h3>Build Local AI <span class="amharic">(ገንቢዎች)</span></h3>
+            <p class="program-desc">
+              Train simple models with Ethiopian data. Learn data collection, labeling, and ethical AI development.
+            </p>
+            <ul class="program-details">
+              <li>⏱️ 8 lessons • 3 hours</li>
+              <li>💻 Browser-based coding</li>
+              <li>🤝 Community projects</li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
+          </article>
+
+          <!-- Program Card 4 -->
+          <article class="program-card">
+            <div class="card-badge sector">Sector Focus</div>
+            <h3>AI for Agriculture & Health</h3>
+            <p class="program-desc">
+              Apply AI to crop advice, disease detection, health messaging — built for Ethiopian contexts.
+            </p>
+            <ul class="program-details">
+              <li>⏱️ 4 lessons • 1 hour</li>
+              <li>🌾 Real case studies</li>
+              <li>📊 Dataset examples included</li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
+          </article>
+
+        </div>
+
+        <div class="section-cta">
+          <p>Want a course in your language? <a href="#community">Request it here</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS SECTION -->
+    <section id="tools" class="section alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-icon">🛠️</span>
+            AI Tools for Everyone
+          </h2>
+          <p class="section-subtitle">
+            <span class="amharic">የAI መሳሪያዎች ለሁሉም</span><br>
+            Free, lightweight tools that work on low-end phones and slow connections.
+          </p>
+        </div>
+
+        <!-- Tools by Audience -->
+        <div class="tools-tabs">
+          <button class="tab-btn active" data-tab="everyday">For Everyday Use</button>
+          <button class="tab-btn" data-tab="researchers">For Researchers</button>
+          <button class="tab-btn" data-tab="creators">For Content Creators</button>
+        </div>
+
+        <!-- Tab Content: Everyday -->
+        <div class="tab-panel active" id="everyday">
+          <div class="tools-grid">
+            
+            <div class="tool-card">
+              <div class="tool-icon">🗣️</div>
+              <h3>Voice Translator</h3>
+              <p>Speak or type in Amharic → get translations in English, Oromo, Tigrinya. Works offline.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Offline</span>
+                <span class="meta-tag">Low Data</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Try Now</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">📝</div>
+              <h3>Smart Summarizer</h3>
+              <p>Paste long articles, reports, or messages → get short summaries in your language.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Amharic</span>
+                <span class="meta-tag">Fast</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Try Now</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">✍️</div>
+              <h3>Writing Assistant</h3>
+              <p>Get help writing emails, school assignments, or business messages — with culturally appropriate suggestions.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Grammar</span>
+                <span class="meta-tag">Tone</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Try Now</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab Content: Researchers -->
+        <div class="tab-panel" id="researchers">
+          <div class="tools-grid">
+            
+            <div class="tool-card">
+              <div class="tool-icon">📊</div>
+              <h3>Ethiopian Dataset Hub</h3>
+              <p>Access open, curated datasets in Amharic, Oromo, and other local languages — for research and model training.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Open Data</span>
+                <span class="meta-tag">CC-BY</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Explore Datasets</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">🏷️</div>
+              <h3>Community Labeling Tool</h3>
+              <p>Help label text, audio, and images in local languages. Contribute to better AI for Ethiopia.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Collaborative</span>
+                <span class="meta-tag">Mobile</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Start Labeling</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">🧪</div>
+              <h3>Model Playground</h3>
+              <p>Test pre-trained Amharic NLP models in your browser — no setup, no GPU required.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">No Code</span>
+                <span class="meta-tag">Browser</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Open Playground</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab Content: Creators -->
+        <div class="tab-panel" id="creators">
+          <div class="tools-grid">
+            
+            <div class="tool-card">
+              <div class="tool-icon">🎬</div>
+              <h3>Script Generator</h3>
+              <p>Create video scripts, social media posts, or educational content in Amharic with AI assistance.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Creative</span>
+                <span class="meta-tag">Templates</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Create Content</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">🔊</div>
+              <h3>Text-to-Speech (Local Voices)</h3>
+              <p>Convert Amharic text to natural-sounding speech with Ethiopian accent options.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Audio</span>
+                <span class="meta-tag">Download</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Generate Speech</a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">🌐</div>
+              <h3>Multilingual Publisher</h3>
+              <p>Publish content once → auto-translate and adapt for Amharic, Oromo, Tigrinya audiences.</p>
+              <div class="tool-meta">
+                <span class="meta-tag">Auto-Translate</span>
+                <span class="meta-tag">SEO</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary">Start Publishing</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="section-cta">
+          <p>Missing a tool you need? <a href="#community">Suggest it to our community</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHALLENGES & SOLUTIONS -->
+    <section id="challenges" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-icon">🇪🇹</span>
+            Making AI Work in Ethiopia
+          </h2>
+          <p class="section-subtitle">
+            <span class="amharic">AI በኢትዮጵያ እንዲሰራ የምናደርገው እንዴት ነው?</span><br>
+            We're tackling real barriers — with practical, community-driven solutions.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          
+          <div class="solution-card">
+            <div class="solution-icon">🗣️</div>
+            <h3>Challenge: Language Gap</h3>
+            <p class="challenge-desc">Most AI tools don't understand Amharic or Ethiopia's 80+ local languages.</p>
+            <div class="solution-box">
+              <strong>Our Approach:</strong>
+              <ul>
+                <li>Train models on Ethiopian text & speech</li>
+                <li>Community-driven translation & validation</li>
+                <li>Open-source language resources</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-icon">📦</div>
+            <h3>Challenge: Data Scarcity</h3>
+            <p class="challenge-desc">Limited public datasets in local languages slow down AI development.</p>
+            <div class="solution-box">
+              <strong>Our Approach:</strong>
+              <ul>
+                <li>Ethiopian Dataset Hub (open & curated)</li>
+                <li>Tools for community data collection</li>
+                <li>Ethical data sharing guidelines</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-icon">📱</div>
+            <h3>Challenge: Accessibility</h3>
+            <p class="challenge-desc">Many users have low-end phones, limited data, or intermittent connectivity.</p>
+            <div class="solution-box">
+              <strong>Our Approach:</strong>
+              <ul>
+                <li>Offline-first tool design</li>
+                <li>Lightweight models (<5MB)</li>
+                <li>SMS/USSD fallback options</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-icon">⚡</div>
+            <h3>Challenge: Infrastructure</h3>
+            <p class="challenge-desc">Limited computing resources and cloud access hinder local AI innovation.</p>
+            <div class="solution-box">
+              <strong>Our Approach:</strong>
+              <ul>
+                <li>Browser-based training (no GPU needed)</li>
+                <li>Partnerships with local tech hubs</li>
+                <li>Edge-AI optimization guides</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY & CTA -->
+    <section id="community" class="section cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-badge">Join the Movement</div>
+          <h2 class="cta-title">
+            Build AI <span class="highlight">With</span> Ethiopia — Not Just <em>For</em> It
+          </h2>
+          <p class="cta-desc">
+            Whether you're a student, teacher, developer, farmer, or artist — your voice matters. 
+            Help us create AI that reflects Ethiopian languages, cultures, and needs.
+          </p>
+          
+          <div class="cta-actions">
+            <a href="#learn" class="btn btn-primary btn-lg">
+              🎓 Start Learning Free
+            </a>
+            <a href="#" class="btn btn-secondary btn-lg">
+              💬 Join Community Forum
+            </a>
+          </div>
+
+          <div class="cta-trust">
+            <p>✨ 100% free • 🌍 Open source • 🔒 Your data stays yours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2026 AI TiBeB • Inclusive AI for Ethiopia • <span class="amharic">ለኢትዮጵያ የተሰራ ቴክኖሎጂ</span></p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      
+      <div class="footer-brand">
+        <a href="#" class="logo logo-small">
+          <span class="logo-icon">✦</span>
+          AI TiBeB
+        </a>
+        <p class="footer-tagline">
+          <span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>
+          Inclusive artificial intelligence for Ethiopia and beyond.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#learn">All Courses</a></li>
+          <li><a href="#">Amharic Basics</a></li>
+          <li><a href="#">Oromo Resources</a></li>
+          <li><a href="#">Request a Language</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="#tools">Everyday Tools</a></li>
+          <li><a href="#">Research Hub</a></li>
+          <li><a href="#">Creator Studio</a></li>
+          <li><a href="#">API Access</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#community">Forum</a></li>
+          <li><a href="#">Contribute Data</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <p>
+        © <span id="year"></span> AI TiBeB • 
+        <a href="#">Privacy</a> • 
+        <a href="#">Terms</a> • 
+        <a href="#">Contact</a>
+      </p>
+      <p class="footer-amharic">
+        <span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia
+      </p>
     </div>
   </footer>
 
+  <!-- JavaScript for Interactions -->
   <script>
-    // Scroll Animation Observer
-    document.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-      });
-
-      // Custom Cursor (Desktop Only)
-      if (window.innerWidth >= 1024) {
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
+    // Tab Switching for Tools Section
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
         
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-          
-          setTimeout(() => {
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
-          }, 100);
-        });
-
-        // Interactive hover effects for cursor
-        const interactives = document.querySelectorAll('a, button, .card');
-        interactives.forEach(el => {
-          el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1.8)';
-            follower.style.background = 'rgba(7, 137, 48, 0.25)';
-          });
-          el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1)';
-            follower.style.background = 'rgba(252, 221, 9, 0.15)';
-          });
-        });
-      }
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
+        // Add active to clicked
+        button.classList.add('active');
+        const tabId = button.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
       });
+    });
+
+    // Simple Language Toggle (Demo)
+    document.querySelector('.lang-toggle')?.addEventListener('click', function() {
+      const active = this.querySelector('.lang-active');
+      const alt = this.querySelector('.lang-alt');
+      // Swap text for demo
+      const temp = active.textContent;
+      active.textContent = alt.textContent;
+      alt.textContent = temp;
+      // In production: load translated content or redirect
+      alert('Language toggle demo — in production, this would load Amharic content.');
+    });
+
+    // Scroll Animation Observer (Simple)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.program-card, .tool-card, .solution-card').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
