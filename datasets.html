@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Open Ethiopian AI datasets for Amharic, Oromo, Tigrinya, and local languages. Free, curated, and community-driven.">
+  <title>Datasets — AI TiBeB • ማሰብ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="datasets.css">
+</head>
+<body>
+
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="pattern-overlay"></div>
+  </div>
+
+  <div class="eth-cursor" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AI TiBeB Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AI TiBeB</span>
+        <span class="logo-sub">ማሰብ</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#challenges">Challenges</a>
+        <a href="index.html#community">Community</a>
+      </nav>
+      <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="datasets-layout">
+    
+    <!-- HERO -->
+    <section class="datasets-hero">
+      <h1>Ethiopian Dataset Hub 📊</h1>
+      <p class="amharic">የኢትዮጵያ ቋንቋ ዳታሴቶች</p>
+      <p>Open, curated datasets for training AI in Amharic, Oromo, Tigrinya, Sidama & more. Free for research & development.</p>
+    </section>
+
+    <!-- SEARCH & FILTER -->
+    <section class="search-filter">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="dataset-search" placeholder="Search datasets (e.g., 'Amharic news', 'Oromo speech')..." aria-label="Search datasets">
+      </div>
+      <div class="filter-chips">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="text">📝 Text</button>
+        <button class="filter-btn" data-filter="audio">🔊 Audio</button>
+        <button class="filter-btn" data-filter="image">🖼️ Image</button>
+        <button class="filter-btn" data-filter="multilingual">🌍 Multilingual</button>
+      </div>
+    </section>
+
+    <!-- DATASET GRID -->
+    <section class="datasets-grid" id="datasets-grid">
+      <!-- Populated by JS -->
+    </section>
+
+    <!-- EMPTY STATE (Hidden by default) -->
+    <div id="empty-state" class="empty-state" style="display:none;">
+      <span class="empty-icon">📭</span>
+      <h3>No datasets match your search</h3>
+      <p>Try adjusting your filters or <a href="#contribute">submit a new dataset</a>.</p>
+    </div>
+
+    <!-- CONTRIBUTE CTA -->
+    <section id="contribute" class="contribute-cta">
+      <h2>🤝 Help Close the AI Language Gap</h2>
+      <p>Ethiopia's 80+ languages deserve better AI. Share your cleaned, annotated, or collected datasets with the community.</p>
+      <div class="contribute-features">
+        <div class="feature">✅ CC-BY 4.0 licensed</div>
+        <div class="feature">📜 Ethical collection verified</div>
+        <div class="feature">🌍 Locally sourced & validated</div>
+      </div>
+      <a href="#" class="btn btn-primary btn-lg">Submit Dataset →</a>
+      <p class="contribute-note">📥 Guidelines & templates available • Review takes 3-5 days</p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
+        <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
+      </div>
+      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
+      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.lang-toggle')?.addEventListener('click', function() {
+      const a = this.querySelector('.lang-active'), b = this.querySelector('.lang-alt'), t = a.textContent;
+      a.textContent = b.textContent; b.textContent = t;
+    });
+
+    // Dataset Data (Replace with API later)
+    const datasets = [
+      { id:1, title:"Amharic News Corpus", type:"text", langs:["Amharic"], size:"450 MB", license:"CC-BY 4.0", downloads:1240, desc:"Cleaned & categorized news articles from 2018-2025. Great for NLP & sentiment analysis." },
+      { id:2, title:"Oromo Speech Samples", type:"audio", langs:["Oromo"], size:"1.2 GB", license:"CC-BY-NC", downloads:890, desc:"10,000+ hours of annotated speech across 5 dialects. Ideal for ASR & TTS models." },
+      { id:3, title:"Ethiopian Legal Docs", type:"text", langs:["Amharic","English"], size:"210 MB", license:"Public Domain", downloads:2100, desc:"Court rulings, proclamations, and policy documents. Bilingual aligned dataset." },
+      { id:4, title:"Tigrinya-Image Labels", type:"image", langs:["Tigrinya"], size:"680 MB", license:"MIT", downloads:540, desc:"25,000 labeled images of local objects, landscapes, and cultural artifacts." },
+      { id:5, title:"Sidama Text Messages", type:"text", langs:["Sidama"], size:"95 MB", license:"CC-BY 4.0", downloads:320, desc:"Crowdsourced SMS & WhatsApp conversations. Anonymized & cleaned for language modeling." },
+      { id:6, title:"Multilingual Health Q&A", type:"text", langs:["Amharic","Oromo","Tigrinya"], size:"140 MB", license:"CC-BY-SA", downloads:1580, desc:"Verified health advice Q&A pairs from Ethiopian clinics & NGOs. Optimized for RAG systems." }
+    ];
+
+    const grid = document.getElementById('datasets-grid');
+    const emptyState = document.getElementById('empty-state');
+    const searchInput = document.getElementById('dataset-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderDatasets(data) {
+      grid.innerHTML = '';
+      if (data.length === 0) {
+        emptyState.style.display = 'flex';
+        return;
+      }
+      emptyState.style.display = 'none';
+      
+      data.forEach(ds => {
+        const card = document.createElement('article');
+        card.className = 'dataset-card';
+        card.dataset.type = ds.type;
+        card.innerHTML = `
+          <div class="card-header">
+            <span class="type-badge ${ds.type}">${ds.type.toUpperCase()}</span>
+            <span class="license-badge">${ds.license}</span>
+          </div>
+          <h3>${ds.title}</h3>
+          <p class="card-langs">🌐 ${ds.langs.join(' • ')}</p>
+          <p class="card-desc">${ds.desc}</p>
+          <div class="card-meta">
+            <span>📦 ${ds.size}</span>
+            <span>📥 ${ds.downloads.toLocaleString()} downloads</span>
+          </div>
+          <a href="#" class="btn btn-sm btn-outline">View Details & Download</a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Initial Render
+    renderDatasets(datasets);
+
+    // Filter Logic
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        const filtered = datasets.filter(ds => {
+          const matchesFilter = filter === 'all' || ds.type === filter || (filter === 'multilingual' && ds.langs.length > 1);
+          const matchesSearch = ds.title.toLowerCase().includes(searchTerm) || 
+                                ds.desc.toLowerCase().includes(searchTerm) || 
+                                ds.langs.some(l => l.toLowerCase().includes(searchTerm));
+          return matchesFilter && matchesSearch;
+        });
+        renderDatasets(filtered);
+      });
+    });
+
+    // Search Logic
+    searchInput.addEventListener('input', () => {
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+      const searchTerm = searchInput.value.toLowerCase();
+      
+      const filtered = datasets.filter(ds => {
+        const matchesFilter = activeFilter === 'all' || ds.type === activeFilter || (activeFilter === 'multilingual' && ds.langs.length > 1);
+        const matchesSearch = ds.title.toLowerCase().includes(searchTerm) || 
+                              ds.desc.toLowerCase().includes(searchTerm) || 
+                              ds.langs.some(l => l.toLowerCase().includes(searchTerm));
+        return matchesFilter && matchesSearch;
+      });
+      renderDatasets(filtered);
+    });
+
+    // Cursor (Same as index)
+    const cursor = document.querySelector('.eth-cursor');
+    let mx=0,my=0,cx=0,cy=0;
+    document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,input,.filter-btn').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
+    });
+  </script>
+</body>
+</html>
