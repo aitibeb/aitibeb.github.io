@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI TiBeB Playground: Try Ethiopian AI tools instantly. Translate, summarize, and create in Amharic and local languages.">
+  <title>AI Playground — AI TiBeB • ማሰብ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="playground.css">
+</head>
+<body>
+
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="pattern-overlay"></div>
+  </div>
+
+  <div class="eth-cursor" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AI TiBeB Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AI TiBeB</span>
+        <span class="logo-sub">ማሰብ</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#challenges">Challenges</a>
+        <a href="index.html#community">Community</a>
+      </nav>
+      <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="playground-layout">
+    
+    <!-- TOOL SELECTOR SIDEBAR -->
+    <aside class="tool-sidebar">
+      <h2 class="sidebar-title">🛠️ Available Tools</h2>
+      <nav class="tool-nav">
+        <ul>
+          <li><button class="tool-btn active" data-tool="translator">🗣️ Voice & Text Translator</button></li>
+          <li><button class="tool-btn" data-tool="summarizer">📝 Smart Summarizer</button></li>
+          <li><button class="tool-btn" data-tool="writer">✍️ Writing Assistant</button></li>
+          <li><button class="tool-btn" data-tool="speech">🔊 Text-to-Speech</button></li>
+          <li><button class="tool-btn" data-tool="label">🏷️ Data Labeling Sandbox</button></li>
+        </ul>
+      </nav>
+      
+      <div class="tool-info-box">
+        <strong>💡 Tip:</strong> All tools work on low-bandwidth. Output is saved locally for offline use.
+      </div>
+    </aside>
+
+    <!-- ACTIVE TOOL WORKSPACE -->
+    <section class="tool-workspace">
+      <div class="workspace-header">
+        <h1 id="tool-title">Voice & Text Translator</h1>
+        <div class="lang-selector">
+          <span class="lang-label">Translate from/to:</span>
+          <div class="lang-chips">
+            <button class="chip active" data-lang="am">🇪🇹 Amharic</button>
+            <button class="chip" data-lang="om">🇪🇹 Oromo</button>
+            <button class="chip" data-lang="ti">🇪🇹 Tigrinya</button>
+            <button class="chip" data-lang="en">🇬🇧 English</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="workspace-panels">
+        <!-- Input -->
+        <div class="panel input-panel">
+          <label for="tool-input" class="panel-label">Input</label>
+          <textarea id="tool-input" placeholder="Type or paste text here... (አማርኛ, English, etc.)"></textarea>
+          <div class="panel-actions">
+            <button id="btn-clear" class="btn btn-sm btn-outline">🗑️ Clear</button>
+            <span class="char-count">0 / 5000</span>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="panel output-panel">
+          <label class="panel-label">AI Output</label>
+          <div id="tool-output" class="output-content" aria-live="polite">
+            <div class="placeholder-state">
+              <span class="placeholder-icon">✨</span>
+              <p>Your translation/result will appear here</p>
+              <p class="sub">Processing uses < 2MB data • Works offline after first load</p>
+            </div>
+          </div>
+          <div class="panel-actions">
+            <button id="btn-copy" class="btn btn-sm btn-outline" disabled>📋 Copy</button>
+            <button id="btn-run" class="btn btn-sm btn-primary">🚀 Run AI</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-footer">
+        <div class="status-bar">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Ready • Local model active</span>
+        </div>
+        <div class="feedback-row">
+          <p>Was this helpful?</p>
+          <button class="feedback-btn" data-vote="up">👍</button>
+          <button class="feedback-btn" data-vote="down">👎</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
+        <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
+      </div>
+      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
+      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.lang-toggle')?.addEventListener('click', function() {
+      const a = this.querySelector('.lang-active'), b = this.querySelector('.lang-alt'), t = a.textContent;
+      a.textContent = b.textContent; b.textContent = t;
+    });
+
+    // Tool Switching
+    const tools = {
+      translator: { title: 'Voice & Text Translator', placeholder: 'Type text in Amharic, Oromo, Tigrinya, or English...' },
+      summarizer: { title: 'Smart Summarizer', placeholder: 'Paste long articles, reports, or messages...' },
+      writer: { title: 'Writing Assistant', placeholder: 'Describe what you need to write (email, post, assignment)...' },
+      speech: { title: 'Text-to-Speech', placeholder: 'Enter Amharic or local language text to generate audio...' },
+      label: { title: 'Data Labeling Sandbox', placeholder: 'Paste sentences to practice categorizing for AI training...' }
+    };
+
+    document.querySelectorAll('.tool-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tool = tools[btn.dataset.tool];
+        document.getElementById('tool-title').textContent = tool.title;
+        document.getElementById('tool-input').placeholder = tool.placeholder;
+        resetWorkspace();
+      });
+    });
+
+    // Language Chips
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+
+    // Workspace Logic
+    const input = document.getElementById('tool-input');
+    const output = document.getElementById('tool-output');
+    const btnRun = document.getElementById('btn-run');
+    const btnClear = document.getElementById('btn-clear');
+    const btnCopy = document.getElementById('btn-copy');
+    const charCount = document.querySelector('.char-count');
+    const statusText = document.getElementById('status-text');
+    const statusDot = document.getElementById('status-dot');
+
+    input.addEventListener('input', () => {
+      charCount.textContent = `${input.value.length} / 5000`;
+      btnCopy.disabled = true;
+    });
+
+    btnClear.addEventListener('click', resetWorkspace);
+    function resetWorkspace() {
+      input.value = '';
+      output.innerHTML = `<div class="placeholder-state"><span class="placeholder-icon">✨</span><p>Your result will appear here</p></div>`;
+      charCount.textContent = '0 / 5000';
+      btnRun.disabled = false;
+      btnCopy.disabled = true;
+      statusText.textContent = 'Ready • Local model active';
+      statusDot.style.background = 'var(--eth-green)';
+    }
+
+    btnRun.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) return;
+
+      btnRun.disabled = true;
+      statusText.textContent = 'Processing... • Est. 2s';
+      statusDot.style.background = 'var(--eth-yellow)';
+      output.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>AI is analyzing text in your language...</p></div>';
+
+      // Simulated AI response (replace with real API later)
+      setTimeout(() => {
+        const lang = document.querySelector('.lang-chip.active').dataset.lang;
+        const responses = {
+          am: 'ይህ ቀለል ያለ የትርጉም ምሳሌ ነው። ሞዴሉ በአማርኛ ጽሑፍ ላይ የተሰለጠነ ነው።',
+          om: 'Kun fakkeencha hiika salphaa dha. Modeliin afaan Oromoo irratti leenjifameera.',
+          ti: 'እዚ ናይ ትርጉም ኣብነት እዩ። እቲ ሞደል ኣብ ትግርኛ ጽሑፍ ተሰልጢኑ እዩ።',
+          en: 'This is a simulated AI translation example. In production, this connects to our lightweight Amharic/NLP model.'
+        };
+        output.textContent = responses[lang] || responses.en;
+        btnRun.disabled = false;
+        btnCopy.disabled = false;
+        statusText.textContent = 'Complete • Model v2.1 (Amharic-Optimized)';
+        statusDot.style.background = 'var(--eth-green)';
+      }, 1500);
+    });
+
+    // Copy to Clipboard
+    btnCopy.addEventListener('click', () => {
+      navigator.clipboard.writeText(output.textContent).then(() => {
+        btnCopy.textContent = '✅ Copied!';
+        setTimeout(() => btnCopy.textContent = '📋 Copy', 2000);
+      });
+    });
+
+    // Cursor (Same as index)
+    const cursor = document.querySelector('.eth-cursor');
+    let mx=0,my=0,cx=0,cy=0;
+    document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,textarea,.chip').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
+    });
+  </script>
+</body>
+</html>
