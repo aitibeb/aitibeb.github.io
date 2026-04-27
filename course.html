@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI TiBeB Course: Learn Artificial Intelligence step-by-step in Amharic and local languages.">
+  <title>Course — AI TiBeB • ማሰብ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="course-page.css">
+</head>
+<body>
+
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="pattern-overlay"></div>
+  </div>
+
+  <div class="eth-cursor" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER (Same as index.html) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AI TiBeB Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AI TiBeB</span>
+        <span class="logo-sub">ማሰብ</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#challenges">Challenges</a>
+        <a href="index.html#community">Community</a>
+      </nav>
+      <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="course-layout">
+    
+    <!-- SIDEBAR: Lesson Navigator -->
+    <aside class="course-sidebar">
+      <a href="index.html#learn" class="back-link">← Back to Courses</a>
+      <h1 class="course-title">AI Basics <span class="amharic">(መሰረት)</span></h1>
+      
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+        <p class="progress-text">Lesson 2 of 8 • 25% Complete</p>
+      </div>
+
+      <nav class="lesson-nav">
+        <ul>
+          <li><a href="#" class="completed"><span class="status">✅</span> 1. What is AI?</a></li>
+          <li><a href="#" class="active"><span class="status">📍</span> 2. How AI Learns</a></li>
+          <li><a href="#"><span class="status">🔒</span> 3. AI vs Traditional Programming</a></li>
+          <li><a href="#"><span class="status">🔒</span> 4. Real Ethiopian Examples</a></li>
+          <li><a href="#"><span class="status">🔒</span> 5. Ethics & Bias</a></li>
+          <li><a href="#"><span class="status">🔒</span> 6. Hands-On Exercise</a></li>
+          <li><a href="#"><span class="status">🔒</span> 7. Quiz & Review</a></li>
+          <li><a href="#"><span class="status">🔒</span> 8. Next Steps & Resources</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-cta">
+        <p>Need help? Join our <a href="index.html#community">Amharic AI Forum</a></p>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT: Lesson Viewer -->
+    <section class="course-content">
+      <div class="content-header">
+        <h2>Lesson 2: How AI Learns <span class="amharic">(AI እንዴት ይማራል?)</span></h2>
+        <div class="content-tabs">
+          <button class="tab-btn active" data-tab="video">🎥 Watch</button>
+          <button class="tab-btn" data-tab="text">📖 Read</button>
+          <button class="tab-btn" data-tab="activity">🛠️ Activity</button>
+        </div>
+      </div>
+
+      <div class="tab-panel active" id="video">
+        <div class="video-placeholder">
+          <div class="play-icon">▶</div>
+          <p>Lesson Video • 4 mins • Amharic with English subtitles</p>
+          <p class="video-note">💡 Works on low bandwidth • Downloadable for offline</p>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="text">
+        <article class="lesson-text">
+          <h3>Understanding Machine Learning</h3>
+          <p>AI doesn't "know" things like humans do. Instead, it learns by finding <strong>patterns in data</strong>. Think of it like teaching a child: you show many examples, they notice similarities, and gradually make predictions.</p>
+          
+          <div class="concept-box">
+            <strong>🔑 Key Concept:</strong> Training Data → Pattern Recognition → Prediction
+          </div>
+
+          <div class="example-box">
+            <h4>🇪🇹 Ethiopian Example</h4>
+            <p>Imagine teaching someone to recognize <span class="amharic">ኢንጀራ</span> (Injera). You don't give them a dictionary definition. You show them photos, textures, and even smells. After enough examples, they can identify it anywhere. AI works the same way — but with numbers instead of senses.</p>
+          </div>
+
+          <ul class="lesson-tips">
+            <li>📌 AI learns from examples, not rules</li>
+            <li>📌 More diverse data = better predictions</li>
+            <li>📌 Ethiopian AI needs Ethiopian data</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="tab-panel" id="activity">
+        <div class="activity-card">
+          <h3>🧩 Try It: Pattern Sorting Game</h3>
+          <p>Drag words into categories to see how a simple classifier learns. This simulates how AI organizes Amharic sentences by topic.</p>
+          <button class="btn btn-primary">Launch Interactive Demo</button>
+          <p class="activity-note">⚠️ Requires JavaScript • Works offline once loaded</p>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <a href="#" class="btn btn-outline">← Previous Lesson</a>
+        <a href="#" class="btn btn-primary">Mark Complete & Next →</a>
+      </div>
+
+      <div class="download-resources">
+        <h3>📥 Downloadable Resources</h3>
+        <div class="resource-list">
+          <a href="#" class="resource-link">📄 Lesson Notes (PDF - Amharic/English)</a>
+          <a href="#" class="resource-link">🔊 Audio Version (MP3 - 12MB)</a>
+          <a href="#" class="resource-link">💻 Offline Package (ZIP - 8MB)</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Same as index.html) -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
+        <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
+      </div>
+      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
+      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.lang-toggle')?.addEventListener('click', function() {
+      const a = this.querySelector('.lang-active'), b = this.querySelector('.lang-alt'), t = a.textContent;
+      a.textContent = b.textContent; b.textContent = t;
+    });
+
+    // Course Tabs
+    document.querySelectorAll('.content-tabs .tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.content-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Cursor (Same as index)
+    const cursor = document.querySelector('.eth-cursor');
+    let mx=0,my=0,cx=0,cy=0;
+    document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,.lesson-nav a,.resource-link').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
+    });
+  </script>
+</body>
+</html>
