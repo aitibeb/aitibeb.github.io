@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI TiBeB: Learn Artificial Intelligence in Amharic and Ethiopian local languages. Free courses, tools, and resources for everyone.">
+  <meta name="description" content="AI TiBeB: Learn Artificial Intelligence in Amharic and Ethiopian local languages. Free courses, tools, datasets, and community.">
   <title>AI TiBeB • ማሰብ — AI in Your Language</title>
   
   <!-- Google Fonts -->
@@ -30,17 +30,18 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="AI TiBeB Home">
+      <a href="index.html" class="logo" aria-label="AI TiBeB Home">
         <span class="logo-icon">✦</span>
         <span class="logo-text">AI TiBeB</span>
         <span class="logo-sub">ማሰብ</span>
       </a>
       
       <nav class="nav" aria-label="Main navigation">
-        <a href="#learn">Learn</a>
-        <a href="#tools">Tools</a>
-        <a href="#challenges">Challenges</a>
-        <a href="#community">Community</a>
+        <a href="course.html">Learn</a>
+        <a href="playground.html">Playground</a>
+        <a href="datasets.html">Datasets</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
       </nav>
       
       <button class="lang-toggle" aria-label="Toggle language">
@@ -54,149 +55,162 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-content">
-        <div class="hero-badge">🇪🇹 Made for Ethiopia</div>
+        <div class="hero-badge">🇪🇹 Built in Ethiopia, for Ethiopia</div>
         
         <h1 class="hero-title">
-          Learn AI in <span class="highlight">Your Language</span>
+          Learn & Build AI in <span class="highlight">Your Language</span>
         </h1>
         
         <p class="hero-tagline">
           <span class="amharic">አርቲፊሻል ኢንተለጀንስ በአማርኛ እና በሌሎች የኢትዮጵያ ቋንቋዎች</span><br>
-          Free, practical AI education and tools designed for Ethiopian learners, creators, and innovators.
+          Free courses, lightweight tools, open datasets, and a thriving community — designed for real-world use.
         </p>
 
         <div class="hero-cta">
-          <a href="#learn" class="btn btn-primary">
-            <span class="btn-icon">📚</span> Start Learning — ክፍት ነው
+          <a href="course.html" class="btn btn-primary">
+            📚 Start Learning
           </a>
-          <a href="#tools" class="btn btn-secondary">
-            <span class="btn-icon">🛠️</span> Try Tools — ሞክር
+          <a href="playground.html" class="btn btn-secondary">
+            🛠️ Try AI Tools
           </a>
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><span class="stat-number">4+</span><span class="stat-label">Languages Supported</span></div>
+          <div class="stat"><span class="stat-number">12+</span><span class="stat-label">Ethiopian Languages</span></div>
           <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Free & Open</span></div>
-          <div class="stat"><span class="stat-number">📱</span><span class="stat-label">Mobile-First</span></div>
+          <div class="stat"><span class="stat-number">📱</span><span class="stat-label">Offline-Ready</span></div>
         </div>
       </div>
     </section>
 
-    <!-- LEARNING -->
-    <section id="learn" class="section">
+    <!-- LEARNING PATHS -->
+    <section class="section" id="learn">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title"><span class="section-icon">📚</span> Short Learning Programs</h2>
-          <p class="section-subtitle"><span class="amharic">አጭር እና ተግባራዊ የAI ኮርሶች</span><br>Bite-sized courses in Amharic, Oromo, Tigrinya & Sidama.</p>
+          <h2 class="section-title">📚 Learn at Your Pace</h2>
+          <p class="section-subtitle">Bite-sized courses in Amharic, Oromo, Tigrinya & more. From beginner to builder.</p>
         </div>
 
-        <div class="programs-grid">
-          <article class="program-card">
-            <div class="card-badge beginner">Beginner</div>
+        <div class="card-grid">
+          <a href="course.html" class="feature-card">
+            <div class="card-icon">🎓</div>
             <h3>AI Basics <span class="amharic">(መሰረት)</span></h3>
-            <p class="program-desc">What is AI? How does it work? Learn core concepts with Ethiopian examples — no coding needed.</p>
-            <ul class="program-details"><li>⏱️ 3 lessons • 45 min</li><li>🗣️ Amharic + English subtitles</li><li>📥 Downloadable notes</li></ul>
-            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
-          </article>
-
-          <article class="program-card">
-            <div class="card-badge intermediate">Practical</div>
-            <h3>AI for Daily Life <span class="amharic">(ለዕለት ተዕለት)</span></h3>
-            <p class="program-desc">Use AI to translate documents, summarize news, write messages, and organize tasks — in your language.</p>
-            <ul class="program-details"><li>⏱️ 5 lessons • 1.5 hours</li><li>🌐 Works offline on mobile</li><li>🔧 Hands-on practice</li></ul>
-            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
-          </article>
-
-          <article class="program-card">
-            <div class="card-badge advanced">For Builders</div>
-            <h3>Build Local AI <span class="amharic">(ገንቢዎች)</span></h3>
-            <p class="program-desc">Train simple models with Ethiopian data. Learn data collection, labeling, and ethical AI development.</p>
-            <ul class="program-details"><li>⏱️ 8 lessons • 3 hours</li><li>💻 Browser-based coding</li><li>🤝 Community projects</li></ul>
-            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
-          </article>
-
-          <article class="program-card">
-            <div class="card-badge sector">Sector Focus</div>
+            <p>No coding required. Learn how AI works with Ethiopian examples.</p>
+            <span class="card-link">Explore Course →</span>
+          </a>
+          <a href="course.html" class="feature-card">
+            <div class="card-icon">🌾</div>
             <h3>AI for Agriculture & Health</h3>
-            <p class="program-desc">Apply AI to crop advice, disease detection, health messaging — built for Ethiopian contexts.</p>
-            <ul class="program-details"><li>⏱️ 4 lessons • 1 hour</li><li>🌾 Real case studies</li><li>📊 Dataset examples</li></ul>
-            <a href="#" class="btn btn-sm btn-outline">Start Course →</a>
-          </article>
+            <p>Apply AI to crop advice, disease detection, and community health.</p>
+            <span class="card-link">Explore Course →</span>
+          </a>
+          <a href="course.html" class="feature-card">
+            <div class="card-icon">💻</div>
+            <h3>Build Local AI Models</h3>
+            <p>Train, fine-tune, and deploy models using Ethiopian data.</p>
+            <span class="card-link">Explore Course →</span>
+          </a>
         </div>
-
-        <div class="section-cta"><p>Want a course in your language? <a href="#community">Request it here</a>.</p></div>
       </div>
     </section>
 
-    <!-- TOOLS -->
-    <section id="tools" class="section alt-bg">
+    <!-- TOOLS PLAYGROUND -->
+    <section class="section alt-bg" id="tools">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title"><span class="section-icon">🛠️</span> AI Tools for Everyone</h2>
-          <p class="section-subtitle"><span class="amharic">የAI መሳሪያዎች ለሁሉም</span><br>Free, lightweight tools that work on low-end phones and slow connections.</p>
+          <h2 class="section-title">🛠️ AI Playground</h2>
+          <p class="section-subtitle">Lightweight tools that work on low-end phones and slow connections.</p>
         </div>
 
-        <div class="tools-tabs">
-          <button class="tab-btn active" data-tab="everyday">For Everyday Use</button>
-          <button class="tab-btn" data-tab="researchers">For Researchers</button>
-          <button class="tab-btn" data-tab="creators">For Content Creators</button>
-        </div>
-
-        <div class="tab-panel active" id="everyday">
-          <div class="tools-grid">
-            <div class="tool-card"><div class="tool-icon">🗣️</div><h3>Voice Translator</h3><p>Speak or type in Amharic → get translations in English, Oromo, Tigrinya. Works offline.</p><div class="tool-meta"><span class="meta-tag">Offline</span><span class="meta-tag">Low Data</span></div><a href="#" class="btn btn-sm btn-primary">Try Now</a></div>
-            <div class="tool-card"><div class="tool-icon">📝</div><h3>Smart Summarizer</h3><p>Paste long articles or messages → get short summaries in your language.</p><div class="tool-meta"><span class="meta-tag">Amharic</span><span class="meta-tag">Fast</span></div><a href="#" class="btn btn-sm btn-primary">Try Now</a></div>
-            <div class="tool-card"><div class="tool-icon">✍️</div><h3>Writing Assistant</h3><p>Get help writing emails, school assignments, or business messages with culturally appropriate suggestions.</p><div class="tool-meta"><span class="meta-tag">Grammar</span><span class="meta-tag">Tone</span></div><a href="#" class="btn btn-sm btn-primary">Try Now</a></div>
+        <div class="tools-preview">
+          <div class="tool-preview-card">
+            <h3>🗣️ Translator & Summarizer</h3>
+            <p>Translate, summarize, or rewrite text in Amharic, Oromo, Tigrinya & English. Works offline.</p>
+            <a href="playground.html" class="btn btn-sm btn-outline">Open Playground</a>
+          </div>
+          <div class="tool-preview-card">
+            <h3>🔊 Text-to-Speech</h3>
+            <p>Generate natural-sounding audio in local languages for education & accessibility.</p>
+            <a href="playground.html" class="btn btn-sm btn-outline">Try It Now</a>
+          </div>
+          <div class="tool-preview-card">
+            <h3>✍️ Writing Assistant</h3>
+            <p>Culturally aware AI help for emails, assignments, and business messages.</p>
+            <a href="playground.html" class="btn btn-sm btn-outline">Start Writing</a>
           </div>
         </div>
-
-        <div class="tab-panel" id="researchers">
-          <div class="tools-grid">
-            <div class="tool-card"><div class="tool-icon">📊</div><h3>Ethiopian Dataset Hub</h3><p>Access open, curated datasets in Amharic, Oromo, and other local languages.</p><div class="tool-meta"><span class="meta-tag">Open Data</span><span class="meta-tag">CC-BY</span></div><a href="#" class="btn btn-sm btn-primary">Explore Datasets</a></div>
-            <div class="tool-card"><div class="tool-icon">🏷️</div><h3>Community Labeling Tool</h3><p>Help label text, audio, and images in local languages. Contribute to better AI.</p><div class="tool-meta"><span class="meta-tag">Collaborative</span><span class="meta-tag">Mobile</span></div><a href="#" class="btn btn-sm btn-primary">Start Labeling</a></div>
-            <div class="tool-card"><div class="tool-icon">🧪</div><h3>Model Playground</h3><p>Test pre-trained Amharic NLP models in your browser — no setup, no GPU required.</p><div class="tool-meta"><span class="meta-tag">No Code</span><span class="meta-tag">Browser</span></div><a href="#" class="btn btn-sm btn-primary">Open Playground</a></div>
-          </div>
-        </div>
-
-        <div class="tab-panel" id="creators">
-          <div class="tools-grid">
-            <div class="tool-card"><div class="tool-icon">🎬</div><h3>Script Generator</h3><p>Create video scripts, social posts, or educational content in Amharic with AI assistance.</p><div class="tool-meta"><span class="meta-tag">Creative</span><span class="meta-tag">Templates</span></div><a href="#" class="btn btn-sm btn-primary">Create Content</a></div>
-            <div class="tool-card"><div class="tool-icon">🔊</div><h3>Text-to-Speech (Local Voices)</h3><p>Convert Amharic text to natural-sounding speech with Ethiopian accent options.</p><div class="tool-meta"><span class="meta-tag">Audio</span><span class="meta-tag">Download</span></div><a href="#" class="btn btn-sm btn-primary">Generate Speech</a></div>
-            <div class="tool-card"><div class="tool-icon">🌐</div><h3>Multilingual Publisher</h3><p>Publish once → auto-translate and adapt for Amharic, Oromo, Tigrinya audiences.</p><div class="tool-meta"><span class="meta-tag">Auto-Translate</span><span class="meta-tag">SEO</span></div><a href="#" class="btn btn-sm btn-primary">Start Publishing</a></div>
-          </div>
-        </div>
-
-        <div class="section-cta"><p>Missing a tool you need? <a href="#community">Suggest it to our community</a>.</p></div>
       </div>
     </section>
 
-    <!-- CHALLENGES -->
-    <section id="challenges" class="section">
+    <!-- DATASETS & RESEARCH -->
+    <section class="section" id="data">
+      <div class="container">
+        <div class="split-layout">
+          <div class="split-content">
+            <h2 class="section-title">📊 Open Ethiopian Datasets</h2>
+            <p class="split-desc">
+              Access curated, community-validated datasets for Amharic, Oromo, Tigrinya, Sidama & more. 
+              Free for research, education, and local AI development.
+            </p>
+            <ul class="feature-list">
+              <li>✅ CC-BY licensed & ethically collected</li>
+              <li>📥 Downloadable offline packages (<50MB)</li>
+              <li>🔍 Search by language, type, or use-case</li>
+            </ul>
+            <a href="datasets.html" class="btn btn-primary">Browse Datasets →</a>
+          </div>
+          <div class="split-visual">
+            <div class="dataset-card-mock">
+              <div class="mock-header">Amharic News Corpus</div>
+              <div class="mock-badge">450 MB • CC-BY 4.0</div>
+              <div class="mock-line"></div>
+              <div class="mock-line short"></div>
+              <div class="mock-line"></div>
+              <div class="mock-btn">Download</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY & IMPACT -->
+    <section class="section alt-bg" id="community">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title"><span class="section-icon">🇪🇹</span> Making AI Work in Ethiopia</h2>
-          <p class="section-subtitle"><span class="amharic">AI በኢትዮጵያ እንዲሰራ የምናደርገው እንዴት ነው?</span><br>We're tackling real barriers with community-driven solutions.</p>
+          <h2 class="section-title">🤝 Join the Movement</h2>
+          <p class="section-subtitle">Connect with 2,400+ learners, researchers, and builders across Ethiopia.</p>
         </div>
 
-        <div class="solutions-grid">
-          <div class="solution-card"><div class="solution-icon">🗣️</div><h3>Language Gap</h3><p class="challenge-desc">Most AI tools don't understand Amharic or Ethiopia's 80+ local languages.</p><div class="solution-box"><strong>Our Approach:</strong><ul><li>Train models on Ethiopian text & speech</li><li>Community-driven translation</li><li>Open-source language resources</li></ul></div></div>
-          <div class="solution-card"><div class="solution-icon">📦</div><h3>Data Scarcity</h3><p class="challenge-desc">Limited public datasets in local languages slow down AI development.</p><div class="solution-box"><strong>Our Approach:</strong><ul><li>Ethiopian Dataset Hub (open & curated)</li><li>Tools for community data collection</li><li>Ethical data sharing guidelines</li></ul></div></div>
-          <div class="solution-card"><div class="solution-icon">📱</div><h3>Accessibility</h3><p class="challenge-desc">Low-end phones, limited data, and intermittent connectivity.</p><div class="solution-box"><strong>Our Approach:</strong><ul><li>Offline-first tool design</li><li>Lightweight models (<5MB)</li><li>SMS/USSD fallback options</li></ul></div></div>
-          <div class="solution-card"><div class="solution-icon">⚡</div><h3>Infrastructure</h3><p class="challenge-desc">Limited computing resources and cloud access hinder local AI innovation.</p><div class="solution-box"><strong>Our Approach:</strong><ul><li>Browser-based training (no GPU needed)</li><li>Partnerships with local tech hubs</li><li>Edge-AI optimization guides</li></ul></div></div>
+        <div class="community-grid">
+          <a href="community.html" class="community-card">
+            <div class="comm-icon">💬</div>
+            <h3>Discussions & Support</h3>
+            <p>Ask questions in your language. Get help from peers & mentors.</p>
+          </a>
+          <a href="community.html" class="community-card">
+            <div class="comm-icon">🚀</div>
+            <h3>Project Showcase</h3>
+            <p>Share your AI projects. Get feedback & find collaborators.</p>
+          </a>
+          <a href="community.html" class="community-card">
+            <div class="comm-icon">🙋</div>
+            <h3>Volunteer & Contribute</h3>
+            <p>Label data, translate, organize meetups, or mentor learners.</p>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section id="community" class="section cta-section">
+    <!-- FINAL CTA -->
+    <section class="section cta-section">
       <div class="container">
         <div class="cta-card">
-          <div class="cta-badge">Join the Movement</div>
+          <div class="cta-badge">Start Today</div>
           <h2 class="cta-title">Build AI <span class="highlight">With</span> Ethiopia — Not Just <em>For</em> It</h2>
-          <p class="cta-desc">Whether you're a student, teacher, developer, farmer, or artist — your voice matters. Help us create AI that reflects Ethiopian languages, cultures, and needs.</p>
+          <p class="cta-desc">Whether you're a student, teacher, developer, or community leader — your voice shapes our AI future.</p>
           <div class="cta-actions">
-            <a href="#learn" class="btn btn-primary btn-lg">🎓 Start Learning Free</a>
-            <a href="#" class="btn btn-secondary btn-lg">💬 Join Community Forum</a>
+            <a href="course.html" class="btn btn-primary btn-lg">🎓 Start Learning Free</a>
+            <a href="about.html" class="btn btn-secondary btn-lg">📖 Our Mission & Ethics</a>
           </div>
           <div class="cta-trust">✨ 100% free • 🌍 Open source • 🔒 Your data stays yours</div>
         </div>
@@ -209,41 +223,24 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
+        <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
         <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
       </div>
-      <div class="footer-links"><h4>Learn</h4><ul><li><a href="#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
-      <div class="footer-links"><h4>Tools</h4><ul><li><a href="#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
-      <div class="footer-links"><h4>Community</h4><ul><li><a href="#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+      <div class="footer-links"><h4>Platform</h4><ul><li><a href="course.html">Learn</a></li><li><a href="playground.html">Playground</a></li><li><a href="datasets.html">Datasets</a></li><li><a href="community.html">Community</a></li></ul></div>
+      <div class="footer-links"><h4>Resources</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#contact">Contact</a></li><li><a href="about.html#press">Press Kit</a></li><li><a href="about.html#ethics">Ethics Policy</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter/X</a></li><li><a href="mailto:hello@aitibeb.et">Email</a></li></ul></div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a></p>
       <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tabs
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
-    });
-
-    // Language Toggle (Demo)
     document.querySelector('.lang-toggle')?.addEventListener('click', function() {
-      const active = this.querySelector('.lang-active');
-      const alt = this.querySelector('.lang-alt');
-      const temp = active.textContent;
-      active.textContent = alt.textContent;
-      alt.textContent = temp;
+      const a = this.querySelector('.lang-active'), b = this.querySelector('.lang-alt'), t = a.textContent;
+      a.textContent = b.textContent; b.textContent = t;
     });
 
     // Scroll Animations
@@ -252,24 +249,22 @@
         if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.program-card, .tool-card, .solution-card').forEach(el => observer.observe(el));
+    document.querySelectorAll('.feature-card, .tool-preview-card, .community-card, .cta-card').forEach(el => observer.observe(el));
 
-    // 🟢 Custom Ethiopian Outline Cursor
+    // Custom Ethiopian Outline Cursor
     const cursor = document.querySelector('.eth-cursor');
-    let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-    const ease = 0.15;
-
-    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    let mx=0, my=0, cx=0, cy=0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     function animateCursor() {
-      cursorX += (mouseX - cursorX) * ease;
-      cursorY += (mouseY - cursorY) * ease;
-      cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
+      cx += (mx - cx) * 0.15;
+      cy += (my - cy) * 0.15;
+      cursor.style.left = cx + 'px';
+      cursor.style.top = cy + 'px';
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
 
-    document.querySelectorAll('a, button, .program-card, .tool-card, .solution-card, input, textarea').forEach(el => {
+    document.querySelectorAll('a, button, input, textarea, .feature-card, .tool-preview-card, .community-card').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
     });
