@@ -193,31 +193,32 @@ a:hover { color: var(--eth-yellow); }
 .program-card:nth-child(1){transition-delay:0.1s} .program-card:nth-child(2){transition-delay:0.2s}
 .program-card:nth-child(3){transition-delay:0.3s} .program-card:nth-child(4){transition-delay:0.4s}
 
-/* 🟢 Ethiopian Flag Cursor */
+/* 🟢 Ethiopian Flag Cursor (Outline Only) */
 .eth-cursor {
   position: fixed;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  /* Gradient colors for the line */
   background: conic-gradient(
     var(--eth-green) 0deg 120deg,
     var(--eth-yellow) 120deg 240deg,
     var(--eth-red) 240deg 360deg
   );
+  /* Mask cuts out the center, leaving only a 3px colored ring */
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
-  border: 2px solid rgba(255,255,255,0.8);
-  box-shadow: 0 0 15px rgba(255,255,255,0.25);
-  mix-blend-mode: screen;
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 6px rgba(252, 221, 9, 0.3));
 }
 .eth-cursor.hovering {
-  width: 48px;
-  height: 48px;
-  border-color: var(--eth-yellow);
-  box-shadow: 0 0 25px rgba(252, 221, 9, 0.6);
+  width: 42px;
+  height: 42px;
 }
+
 @media (hover: none) or (pointer: coarse) {
   .eth-cursor { display: none !important; }
   body { cursor: auto; }
@@ -249,4 +250,4 @@ a:hover { color: var(--eth-yellow); }
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } .blob { display: none; } }
 @media (prefers-contrast: high) { :root { --glass: rgba(255,255,255,0.15); --glass-border: rgba(255,255,255,0.4); --text-muted: rgba(255,255,255,0.9); } }
-@media print { .bg-decoration, .site-header, .btn, .hero-cta, .cta-actions { display: none !important; } body { background: white; color: black; } .program-card, .tool-card, .solution-card { background: white; border: 1px solid #ccc; color: black; } }
+@media print { .bg-decoration, .site-header, .btn, .hero-cta, .cta-actions, .eth-cursor { display: none !important; } body { background: white; color: black; } .program-card, .tool-card, .solution-card { background: white; border: 1px solid #ccc; color: black; } }
