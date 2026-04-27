@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join AI TiBeB Community: Connect with Ethiopian AI learners, share projects, volunteer, and grow together in Amharic and local languages.">
+  <title>Community — AI TiBeB • ማሰብ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="community.css">
+</head>
+<body>
+
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="pattern-overlay"></div>
+  </div>
+
+  <div class="eth-cursor" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AI TiBeB Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AI TiBeB</span>
+        <span class="logo-sub">ማሰብ</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#challenges">Challenges</a>
+        <a href="index.html#community">Community</a>
+      </nav>
+      <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="community-layout">
+    
+    <!-- HERO -->
+    <section class="community-hero">
+      <h1>🤝 Build AI <span class="highlight">Together</span></h1>
+      <p class="amharic">የኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ማህበረሰብ</p>
+      <p>Connect with learners, share projects, volunteer your skills, and grow Ethiopia's AI ecosystem — in your language.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-number">2,400+</span><span class="stat-label">Members</span></div>
+        <div class="stat"><span class="stat-number">180+</span><span class="stat-label">Projects Shared</span></div>
+        <div class="stat"><span class="stat-number">12</span><span class="stat-label">Languages Active</span></div>
+      </div>
+    </section>
+
+    <!-- TABS NAVIGATION -->
+    <section class="community-tabs">
+      <button class="tab-btn active" data-tab="discussions">💬 Discussions</button>
+      <button class="tab-btn" data-tab="projects">🚀 Projects</button>
+      <button class="tab-btn" data-tab="volunteer">🙋 Volunteer</button>
+      <button class="tab-btn" data-tab="events">📅 Events</button>
+    </section>
+
+    <!-- TAB PANEL: DISCUSSIONS -->
+    <section id="discussions" class="tab-panel active">
+      <div class="section-header">
+        <h2>Community Discussions</h2>
+        <p>Ask questions, share insights, and learn from peers — in Amharic, Oromo, Tigrinya, English & more.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search discussions..." aria-label="Search discussions">
+        </div>
+        <div class="lang-filters">
+          <span class="filter-label">Language:</span>
+          <button class="lang-chip active" data-lang="all">All</button>
+          <button class="lang-chip" data-lang="am">አማርኛ</button>
+          <button class="lang-chip" data-lang="om">Afaan Oromoo</button>
+          <button class="lang-chip" data-lang="ti">ትግርኛ</button>
+          <button class="lang-chip" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <div class="discussions-list">
+        <article class="discussion-card">
+          <div class="card-meta">
+            <span class="lang-tag am">አማርኛ</span>
+            <span class="replies">12 replies</span>
+            <span class="updated">2h ago</span>
+          </div>
+          <h3><a href="#">How do I train a model with limited Amharic data?</a></h3>
+          <p class="preview">I'm working on a sentiment analysis project but only have ~500 labeled examples. What techniques work best for low-resource languages?</p>
+          <div class="card-footer">
+            <span class="author">👤 Abebe K.</span>
+            <span class="category">🔧 Model Training</span>
+          </div>
+        </article>
+
+        <article class="discussion-card">
+          <div class="card-meta">
+            <span class="lang-tag om">Oromo</span>
+            <span class="replies">8 replies</span>
+            <span class="updated">5h ago</span>
+          </div>
+          <h3><a href="#">Best practices for collecting Oromo speech data ethically?</a></h3>
+          <p class="preview">Planning a community recording project. What consent forms and privacy safeguards should we use?</p>
+          <div class="card-footer">
+            <span class="author">👤 Fatuma M.</span>
+            <span class="category">📊 Data Collection</span>
+          </div>
+        </article>
+
+        <article class="discussion-card">
+          <div class="card-meta">
+            <span class="lang-tag multi">Multilingual</span>
+            <span class="replies">24 replies</span>
+            <span class="updated">1d ago</span>
+          </div>
+          <h3><a href="#">Translating AI terms into local languages — glossary project</a></h3>
+          <p class="preview">Let's collaboratively build a glossary of AI/ML terms in Amharic, Sidama, Wolaytta & more. Join the effort!</p>
+          <div class="card-footer">
+            <span class="author">👤 Community Team</span>
+            <span class="category">🌍 Localization</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <a href="#" class="btn btn-primary">Start a New Discussion →</a>
+        <p class="note">✨ New members: Introduce yourself in our <a href="#">Welcome Thread</a></p>
+      </div>
+    </section>
+
+    <!-- TAB PANEL: PROJECTS -->
+    <section id="projects" class="tab-panel">
+      <div class="section-header">
+        <h2>Ethiopian AI Projects Showcase</h2>
+        <p>Discover, fork, and collaborate on open-source AI projects built for and by Ethiopians.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-badge">🌾 Agriculture</div>
+          <h3>Crop Disease Detector (Amharic)</h3>
+          <p>Mobile app that identifies crop diseases from photos + suggests organic remedies in Amharic.</p>
+          <div class="project-meta">
+            <span>👥 3 contributors</span>
+            <span>⭐ 42 stars</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">TensorFlow Lite</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Amharic NLP</span>
+          </div>
+          <a href="#" class="btn btn-sm btn-outline">View Project</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-badge">🏥 Health</div>
+          <h3>Maternal Health Chatbot</h3>
+          <p>WhatsApp-integrated bot answering prenatal questions in Oromo, Amharic & Tigrinya.</p>
+          <div class="project-meta">
+            <span>👥 5 contributors</span>
+            <span>⭐ 89 stars</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Rasa</span>
+            <span class="tech-tag">Twilio API</span>
+            <span class="tech-tag">Multilingual</span>
+          </div>
+          <a href="#" class="btn btn-sm btn-outline">View Project</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-badge">📚 Education</div>
+          <h3>Amharic Story Generator</h3>
+          <p>AI tool helping teachers create culturally relevant reading materials for primary students.</p>
+          <div class="project-meta">
+            <span>👥 2 contributors</span>
+            <span>⭐ 28 stars</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">GPT-2 Fine-tuned</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Amharic Corpus</span>
+          </div>
+          <a href="#" class="btn btn-sm btn-outline">View Project</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-badge">💼 Business</div>
+          <h3>SME Invoice Assistant</h3>
+          <p>Voice-to-invoice tool for small businesses: speak in local language → generate formatted invoice.</p>
+          <div class="project-meta">
+            <span>👥 4 contributors</span>
+            <span>⭐ 56 stars</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Whisper</span>
+            <span class="tech-tag">PDF Generation</span>
+            <span class="tech-tag">Offline-first</span>
+          </div>
+          <a href="#" class="btn btn-sm btn-outline">View Project</a>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <a href="#" class="btn btn-primary">Submit Your Project →</a>
+        <p class="note">🔓 All showcased projects are open-source • Licensed under MIT/CC-BY</p>
+      </div>
+    </section>
+
+    <!-- TAB PANEL: VOLUNTEER -->
+    <section id="volunteer" class="tab-panel">
+      <div class="section-header">
+        <h2>Volunteer Your Skills</h2>
+        <p>Help grow inclusive AI in Ethiopia. No experience? Start with beginner-friendly tasks.</p>
+      </div>
+
+      <div class="opportunities-grid">
+        <article class="opportunity-card">
+          <div class="opp-badge beginner">Beginner</div>
+          <h3>🏷️ Data Labeling (Amharic Text)</h3>
+          <p>Help categorize sentences for sentiment analysis. 15-30 min tasks, flexible schedule.</p>
+          <ul class="opp-requirements">
+            <li>✅ Native Amharic speaker</li>
+            <li>✅ Basic computer literacy</li>
+            <li>✅ 2-3 hrs/week</li>
+          </ul>
+          <a href="#" class="btn btn-sm btn-outline">Apply Now</a>
+        </article>
+
+        <article class="opportunity-card">
+          <div class="opp-badge intermediate">Intermediate</div>
+          <h3>🌐 Translation & Localization</h3>
+          <p>Translate course content, tool UIs, or documentation into Oromo, Tigrinya, Sidama, or Wolaytta.</p>
+          <ul class="opp-requirements">
+            <li>✅ Fluent in target language + English</li>
+            <li>✅ Familiar with tech/AI terms</li>
+            <li>✅ Attention to cultural nuance</li>
+          </ul>
+          <a href="#" class="btn btn-sm btn-outline">Apply Now</a>
+        </article>
+
+        <article class="opportunity-card">
+          <div class="opp-badge advanced">Advanced</div>
+          <h3>🔧 Model Fine-tuning Support</h3>
+          <p>Help adapt open-source NLP models to Ethiopian languages. Python + ML basics required.</p>
+          <ul class="opp-requirements">
+            <li>✅ Python & PyTorch/TensorFlow</li>
+            <li>✅ Experience with HuggingFace</li>
+            <li>✅ Interest in low-resource NLP</li>
+          </ul>
+          <a href="#" class="btn btn-sm btn-outline">Apply Now</a>
+        </article>
+
+        <article class="opportunity-card">
+          <div class="opp-badge community">Community</div>
+          <h3>🗣️ Local Chapter Organizer</h3>
+          <p>Host meetups, workshops, or study groups in your city/university. We provide materials & support.</p>
+          <ul class="opp-requirements">
+            <li>✅ Based in Ethiopia (any region)</li>
+            <li>✅ Passion for community building</li>
+            <li>✅ 1 event/month commitment</li>
+          </ul>
+          <a href="#" class="btn btn-sm btn-outline">Apply Now</a>
+        </article>
+      </div>
+
+      <div class="volunteer-cta">
+        <h3>Not sure where to start?</h3>
+        <p>Take our <a href="#">2-min Skills Matcher Quiz</a> to find your perfect contribution path.</p>
+      </div>
+    </section>
+
+    <!-- TAB PANEL: EVENTS -->
+    <section id="events" class="tab-panel">
+      <div class="section-header">
+        <h2>Upcoming Events & Meetups</h2>
+        <p>Join virtual sessions or local gatherings. All events offer Amharic/English interpretation.</p>
+      </div>
+
+      <div class="events-list">
+        <article class="event-card">
+          <div class="event-date">
+            <span class="day">15</span>
+            <span class="month">May</span>
+          </div>
+          <div class="event-details">
+            <h3>Amharic NLP Workshop (Virtual)</h3>
+            <p class="event-time">🕒 6:00 PM EAT • 90 mins</p>
+            <p class="event-desc">Hands-on session: fine-tune a sentiment classifier with Ethiopian text data. Beginners welcome.</p>
+            <div class="event-meta">
+              <span>🌐 Online</span>
+              <span>🗣️ Amharic + English</span>
+              <span>🎟️ Free</span>
+            </div>
+            <a href="#" class="btn btn-sm btn-primary">Reserve Spot</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-date">
+            <span class="day">22</span>
+            <span class="month">May</span>
+          </div>
+          <div class="event-details">
+            <h3>Addis Ababa AI Meetup</h3>
+            <p class="event-time">🕒 3:00 PM EAT • 3 hours</p>
+            <p class="event-desc">In-person networking, project demos, and lightning talks at iCog Labs. Light refreshments provided.</p>
+            <div class="event-meta">
+              <span>📍 iCog Labs, Bole</span>
+              <span>🗣️ Multilingual</span>
+              <span>🎟️ Free</span>
+            </div>
+            <a href="#" class="btn btn-sm btn-primary">RSVP</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-date">
+            <span class="day">05</span>
+            <span class="month">Jun</span>
+          </div>
+          <div class="event-details">
+            <h3>Ethiopian Data Ethics Panel</h3>
+            <p class="event-time">🕒 7:00 PM EAT • 60 mins</p>
+            <p class="event-desc">Experts discuss responsible AI development in Ethiopian contexts. Q&A in Amharic, Oromo & English.</p>
+            <div class="event-meta">
+              <span>🌐 Online</span>
+              <span>🗣️ Trilingual</span>
+              <span>🎟️ Free</span>
+            </div>
+            <a href="#" class="btn btn-sm btn-primary">Register</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <a href="#" class="btn btn-primary">View Full Calendar →</a>
+        <p class="note">📬 Subscribe to event reminders: <a href="#">Email</a> • <a href="#">Telegram</a></p>
+      </div>
+    </section>
+
+    <!-- CONTRIBUTOR SPOTLIGHT -->
+    <section class="contributor-spotlight">
+      <h2>🌟 Community Contributors</h2>
+      <p>Meet the people building inclusive AI for Ethiopia.</p>
+      
+      <div class="contributors-grid">
+        <div class="contributor-card">
+          <div class="avatar">👤</div>
+          <h4>Sara T.</h4>
+          <p class="role">Data Curator • Amharic</p>
+          <p class="contribution">Labeled 2,000+ sentences for the sentiment dataset</p>
+          <div class="badges">
+            <span class="badge">🏆 Top Contributor</span>
+            <span class="badge">🌍 Local Validator</span>
+          </div>
+        </div>
+        <div class="contributor-card">
+          <div class="avatar">👤</div>
+          <h4>Dawit M.</h4>
+          <p class="role">Project Lead • Oromo NLP</p>
+          <p class="contribution">Built the first Oromo POS tagger (open-source)</p>
+          <div class="badges">
+            <span class="badge">🚀 Project Creator</span>
+            <span class="badge">💻 Code Contributor</span>
+          </div>
+        </div>
+        <div class="contributor-card">
+          <div class="avatar">👤</div>
+          <h4>Hiwot K.</h4>
+          <p class="role">Community Organizer • Bahir Dar</p>
+          <p class="contribution">Hosted 3 regional workshops with 120+ attendees</p>
+          <div class="badges">
+            <span class="badge">🗣️ Ambassador</span>
+            <span class="badge">🎓 Educator</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="join-cta">
+      <h2>Ready to Join the Movement?</h2>
+      <p>Whether you're a student, teacher, developer, farmer, or artist — your voice matters.</p>
+      <div class="join-actions">
+        <a href="#" class="btn btn-primary btn-lg">✨ Create Free Account</a>
+        <a href="#" class="btn btn-secondary btn-lg">💬 Browse Discussions First</a>
+      </div>
+      <p class="trust-note">🔒 No spam • 🌍 Your data stays in Ethiopia • ✨ 100% free forever</p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
+        <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
+      </div>
+      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
+      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.lang-toggle')?.addEventListener('click', function() {
+      const a = this.querySelector('.lang-active'), b = this.querySelector('.lang-alt'), t = a.textContent;
+      a.textContent = b.textContent; b.textContent = t;
+    });
+
+    // Tab Switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Language Filter Chips (Discussions)
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        // In production: filter discussions by language
+      });
+    });
+
+    // Cursor (Same as index)
+    const cursor = document.querySelector('.eth-cursor');
+    let mx=0,my=0,cx=0,cy=0;
+    document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,input,.tab-btn,.lang-chip,.project-card,.opportunity-card').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
+    });
+  </script>
+</body>
+</html>
