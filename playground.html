@@ -30,9 +30,10 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html#learn">Learn</a>
-        <a href="index.html#tools">Tools</a>
-        <a href="index.html#challenges">Challenges</a>
-        <a href="index.html#community">Community</a>
+        <a href="playground.html">Playground</a>
+        <a href="datasets.html">Datasets</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
       </nav>
       <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
     </div>
@@ -40,81 +41,120 @@
 
   <main id="main" class="playground-layout">
     
-    <!-- TOOL SELECTOR SIDEBAR -->
+    <!-- TOOL SIDEBAR -->
     <aside class="tool-sidebar">
-      <h2 class="sidebar-title">🛠️ Available Tools</h2>
+      <h2 class="sidebar-title">🛠️ Tools</h2>
       <nav class="tool-nav">
         <ul>
-          <li><button class="tool-btn active" data-tool="translator">🗣️ Voice & Text Translator</button></li>
-          <li><button class="tool-btn" data-tool="summarizer">📝 Smart Summarizer</button></li>
+          <li><button class="tool-btn active" data-tool="translator">🗣️ Translator</button></li>
+          <li><button class="tool-btn" data-tool="summarizer">📝 Summarizer</button></li>
           <li><button class="tool-btn" data-tool="writer">✍️ Writing Assistant</button></li>
           <li><button class="tool-btn" data-tool="speech">🔊 Text-to-Speech</button></li>
-          <li><button class="tool-btn" data-tool="label">🏷️ Data Labeling Sandbox</button></li>
+          <li><button class="tool-btn" data-tool="label">🏷️ Data Labeler</button></li>
         </ul>
       </nav>
       
       <div class="tool-info-box">
-        <strong>💡 Tip:</strong> All tools work on low-bandwidth. Output is saved locally for offline use.
+        <strong>💡 Tip:</strong> Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run. All tools work offline after first load.
       </div>
     </aside>
 
-    <!-- ACTIVE TOOL WORKSPACE -->
+    <!-- WORKSPACE -->
     <section class="tool-workspace">
       <div class="workspace-header">
-        <h1 id="tool-title">Voice & Text Translator</h1>
-        <div class="lang-selector">
-          <span class="lang-label">Translate from/to:</span>
-          <div class="lang-chips">
-            <button class="chip active" data-lang="am">🇪🇹 Amharic</button>
-            <button class="chip" data-lang="om">🇪🇹 Oromo</button>
-            <button class="chip" data-lang="ti">🇪🇹 Tigrinya</button>
-            <button class="chip" data-lang="en">🇬🇧 English</button>
+        <div>
+          <h1 id="tool-title">🗣️ Voice & Text Translator</h1>
+          <p id="tool-desc">Translate between Amharic, Oromo, Tigrinya, and English with low-bandwidth AI models.</p>
+        </div>
+      </div>
+
+      <!-- Tool-Specific Controls -->
+      <div id="tool-controls" class="tool-controls">
+        <!-- Translator Controls -->
+        <div class="control-group" id="ctrl-translator">
+          <label>Source → Target</label>
+          <div class="lang-pair">
+            <select id="source-lang" aria-label="Source language">
+              <option value="auto">Auto-Detect</option>
+              <option value="am">አማርኛ (Amharic)</option>
+              <option value="om">Afaan Oromoo</option>
+              <option value="ti">ትግርኛ (Tigrinya)</option>
+              <option value="en">English</option>
+            </select>
+            <span class="swap-icon" id="swap-langs" title="Swap languages">⇄</span>
+            <select id="target-lang" aria-label="Target language">
+              <option value="en" selected>English</option>
+              <option value="am">አማርኛ (Amharic)</option>
+              <option value="om">Afaan Oromoo</option>
+              <option value="ti">ትግርኛ (Tigrinya)</option>
+            </select>
+          </div>
+        </div>
+        <!-- Other controls hidden by default -->
+        <div class="control-group hidden" id="ctrl-summarizer">
+          <label>Summary Length</label>
+          <div class="radio-group">
+            <label><input type="radio" name="length" value="short" checked> Short</label>
+            <label><input type="radio" name="length" value="medium"> Medium</label>
+            <label><input type="radio" name="length" value="detailed"> Detailed</label>
+          </div>
+        </div>
+        <div class="control-group hidden" id="ctrl-writer">
+          <label>Tone & Purpose</label>
+          <div class="select-group">
+            <select id="writer-tone">
+              <option value="formal">Formal / Academic</option>
+              <option value="casual">Casual / Friendly</option>
+              <option value="business">Business / Professional</option>
+            </select>
           </div>
         </div>
       </div>
 
+      <!-- Input/Output Panels -->
       <div class="workspace-panels">
-        <!-- Input -->
         <div class="panel input-panel">
           <label for="tool-input" class="panel-label">Input</label>
-          <textarea id="tool-input" placeholder="Type or paste text here... (አማርኛ, English, etc.)"></textarea>
+          <textarea id="tool-input" placeholder="Type or paste text here... (አማርኛ, English, etc.)" aria-label="Text input"></textarea>
           <div class="panel-actions">
-            <button id="btn-clear" class="btn btn-sm btn-outline">🗑️ Clear</button>
-            <span class="char-count">0 / 5000</span>
+            <button id="btn-clear" class="btn btn-sm btn-ghost" title="Clear input">🗑️</button>
+            <span class="char-count">0 / 5,000</span>
           </div>
         </div>
 
-        <!-- Output -->
         <div class="panel output-panel">
-          <label class="panel-label">AI Output</label>
+          <div class="output-header">
+            <label class="panel-label">AI Output</label>
+            <div class="output-actions">
+              <button id="btn-copy" class="btn btn-sm btn-ghost" disabled title="Copy result">📋 Copy</button>
+              <button id="btn-download" class="btn btn-sm btn-ghost" disabled title="Download as text">⬇️ Download</button>
+            </div>
+          </div>
           <div id="tool-output" class="output-content" aria-live="polite">
             <div class="placeholder-state">
               <span class="placeholder-icon">✨</span>
-              <p>Your translation/result will appear here</p>
-              <p class="sub">Processing uses < 2MB data • Works offline after first load</p>
+              <p>Your result will appear here</p>
+              <p class="sub">Processing uses &lt; 2MB data • Works offline</p>
             </div>
-          </div>
-          <div class="panel-actions">
-            <button id="btn-copy" class="btn btn-sm btn-outline" disabled>📋 Copy</button>
-            <button id="btn-run" class="btn btn-sm btn-primary">🚀 Run AI</button>
           </div>
         </div>
       </div>
 
-      <div class="tool-footer">
+      <!-- Run Button & Status -->
+      <div class="workspace-footer">
+        <button id="btn-run" class="btn btn-primary btn-lg">🚀 Run AI</button>
         <div class="status-bar">
           <span class="status-dot" id="status-dot"></span>
           <span id="status-text">Ready • Local model active</span>
-        </div>
-        <div class="feedback-row">
-          <p>Was this helpful?</p>
-          <button class="feedback-btn" data-vote="up">👍</button>
-          <button class="feedback-btn" data-vote="down">👎</button>
+          <span id="status-time" class="hidden">⏱️ 0.0s</span>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast" aria-live="polite"></div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -123,12 +163,12 @@
         <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
         <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
       </div>
-      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
-      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
-      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+      <div class="footer-links"><h4>Platform</h4><ul><li><a href="index.html#learn">Learn</a></li><li><a href="playground.html">Playground</a></li><li><a href="datasets.html">Datasets</a></li><li><a href="community.html">Community</a></li></ul></div>
+      <div class="footer-links"><h4>Resources</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#contact">Contact</a></li><li><a href="about.html#press">Press Kit</a></li><li><a href="about.html#ethics">Ethics Policy</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter/X</a></li><li><a href="mailto:hello@aitibeb.et">Email</a></li></ul></div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a></p>
       <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
     </div>
   </footer>
@@ -140,100 +180,196 @@
       a.textContent = b.textContent; b.textContent = t;
     });
 
-    // Tool Switching
+    // ========== TOOL CONFIG ==========
     const tools = {
-      translator: { title: 'Voice & Text Translator', placeholder: 'Type text in Amharic, Oromo, Tigrinya, or English...' },
-      summarizer: { title: 'Smart Summarizer', placeholder: 'Paste long articles, reports, or messages...' },
-      writer: { title: 'Writing Assistant', placeholder: 'Describe what you need to write (email, post, assignment)...' },
-      speech: { title: 'Text-to-Speech', placeholder: 'Enter Amharic or local language text to generate audio...' },
-      label: { title: 'Data Labeling Sandbox', placeholder: 'Paste sentences to practice categorizing for AI training...' }
+      translator: { title: '🗣️ Voice & Text Translator', desc: 'Translate between Amharic, Oromo, Tigrinya, and English with low-bandwidth AI models.', placeholder: 'Type text in any supported language...', ctrl: 'ctrl-translator' },
+      summarizer: { title: '📝 Smart Summarizer', desc: 'Condense long articles, reports, or messages into clear, readable summaries.', placeholder: 'Paste long text here (articles, reports, etc.)...', ctrl: 'ctrl-summarizer' },
+      writer: { title: '✍️ Writing Assistant', desc: 'Get culturally appropriate suggestions for emails, assignments, or business messages.', placeholder: 'Describe what you need to write (e.g., "Formal email to school principal in Amharic")...', ctrl: 'ctrl-writer' },
+      speech: { title: '🔊 Text-to-Speech', desc: 'Convert text to natural-sounding audio with Ethiopian accent options.', placeholder: 'Enter Amharic or local language text to generate audio...', ctrl: 'none' },
+      label: { title: '🏷️ Data Labeling Sandbox', desc: 'Categorize text for AI training. Helps improve local language models.', placeholder: 'Paste sentences to practice categorizing for AI training...', ctrl: 'none' }
     };
 
+    // ========== DOM ELEMENTS ==========
+    const toolTitle = document.getElementById('tool-title');
+    const toolDesc = document.getElementById('tool-desc');
+    const toolInput = document.getElementById('tool-input');
+    const toolOutput = document.getElementById('tool-output');
+    const btnRun = document.getElementById('btn-run');
+    const btnClear = document.getElementById('btn-clear');
+    const btnCopy = document.getElementById('btn-copy');
+    const btnDownload = document.getElementById('btn-download');
+    const charCount = document.querySelector('.char-count');
+    const statusDot = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+    const statusTime = document.getElementById('status-time');
+    const toast = document.getElementById('toast');
+
+    let currentTool = 'translator';
+    let isRunning = false;
+
+    // ========== INIT ==========
+    function setTool(toolKey) {
+      currentTool = toolKey;
+      const t = tools[toolKey];
+      toolTitle.textContent = t.title;
+      toolDesc.textContent = t.desc;
+      toolInput.placeholder = t.placeholder;
+      toolInput.value = '';
+      resetWorkspace();
+      
+      // Show/hide controls
+      document.querySelectorAll('.control-group').forEach(c => c.classList.add('hidden'));
+      if (t.ctrl !== 'none') document.getElementById(t.ctrl).classList.remove('hidden');
+    }
+
+    // Tool Switching
     document.querySelectorAll('.tool-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const tool = tools[btn.dataset.tool];
-        document.getElementById('tool-title').textContent = tool.title;
-        document.getElementById('tool-input').placeholder = tool.placeholder;
-        resetWorkspace();
+        setTool(btn.dataset.tool);
       });
     });
 
-    // Language Chips
-    document.querySelectorAll('.lang-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-      });
-    });
-
-    // Workspace Logic
-    const input = document.getElementById('tool-input');
-    const output = document.getElementById('tool-output');
-    const btnRun = document.getElementById('btn-run');
-    const btnClear = document.getElementById('btn-clear');
-    const btnCopy = document.getElementById('btn-copy');
-    const charCount = document.querySelector('.char-count');
-    const statusText = document.getElementById('status-text');
-    const statusDot = document.getElementById('status-dot');
-
-    input.addEventListener('input', () => {
-      charCount.textContent = `${input.value.length} / 5000`;
+    // Input Handling
+    toolInput.addEventListener('input', () => {
+      charCount.textContent = `${toolInput.value.length.toLocaleString()} / 5,000`;
+      if (toolInput.value.length > 5000) toolInput.value = toolInput.value.slice(0, 5000);
       btnCopy.disabled = true;
+      btnDownload.disabled = true;
     });
 
     btnClear.addEventListener('click', resetWorkspace);
     function resetWorkspace() {
-      input.value = '';
-      output.innerHTML = `<div class="placeholder-state"><span class="placeholder-icon">✨</span><p>Your result will appear here</p></div>`;
-      charCount.textContent = '0 / 5000';
+      toolOutput.innerHTML = `<div class="placeholder-state"><span class="placeholder-icon">✨</span><p>Your result will appear here</p><p class="sub">Processing uses &lt; 2MB data • Works offline</p></div>`;
+      charCount.textContent = `0 / 5,000`;
       btnRun.disabled = false;
+      btnRun.innerHTML = '🚀 Run AI';
       btnCopy.disabled = true;
-      statusText.textContent = 'Ready • Local model active';
+      btnDownload.disabled = true;
+      statusDot.className = 'status-dot';
       statusDot.style.background = 'var(--eth-green)';
+      statusText.textContent = 'Ready • Local model active';
+      statusTime.classList.add('hidden');
     }
 
-    btnRun.addEventListener('click', () => {
-      const text = input.value.trim();
-      if (!text) return;
+    // Keyboard Shortcut
+    toolInput.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        runAI();
+      }
+    });
 
+    // Swap Languages
+    document.getElementById('swap-langs')?.addEventListener('click', () => {
+      const src = document.getElementById('source-lang');
+      const tgt = document.getElementById('target-lang');
+      if (src.value === 'auto') return;
+      const temp = src.value;
+      src.value = tgt.value;
+      tgt.value = temp;
+      showToast('Languages swapped ⇄');
+    });
+
+    // ========== RUN AI (SIMULATION) ==========
+    btnRun.addEventListener('click', runAI);
+
+    async function runAI() {
+      if (isRunning || !toolInput.value.trim()) {
+        if (!toolInput.value.trim()) showToast('Please enter some text first');
+        return;
+      }
+
+      isRunning = true;
       btnRun.disabled = true;
-      statusText.textContent = 'Processing... • Est. 2s';
+      btnRun.innerHTML = '⏳ Processing...';
       statusDot.style.background = 'var(--eth-yellow)';
-      output.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>AI is analyzing text in your language...</p></div>';
+      statusText.textContent = 'Processing • Estimating 1-3s';
+      statusTime.classList.add('hidden');
+      toolOutput.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p class="loading-text">AI is analyzing text in your language...</p></div>';
 
-      // Simulated AI response (replace with real API later)
-      setTimeout(() => {
-        const lang = document.querySelector('.lang-chip.active').dataset.lang;
-        const responses = {
-          am: 'ይህ ቀለል ያለ የትርጉም ምሳሌ ነው። ሞዴሉ በአማርኛ ጽሑፍ ላይ የተሰለጠነ ነው።',
-          om: 'Kun fakkeencha hiika salphaa dha. Modeliin afaan Oromoo irratti leenjifameera.',
-          ti: 'እዚ ናይ ትርጉም ኣብነት እዩ። እቲ ሞደል ኣብ ትግርኛ ጽሑፍ ተሰልጢኑ እዩ።',
-          en: 'This is a simulated AI translation example. In production, this connects to our lightweight Amharic/NLP model.'
-        };
-        output.textContent = responses[lang] || responses.en;
-        btnRun.disabled = false;
-        btnCopy.disabled = false;
-        statusText.textContent = 'Complete • Model v2.1 (Amharic-Optimized)';
+      const startTime = performance.now();
+      const inputText = toolInput.value.trim();
+      const targetLang = document.getElementById('target-lang')?.value || 'en';
+
+      try {
+        // 🔌 SIMULATION: Replace this block with real fetch() to your backend
+        // const res = await fetch('/api/process', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ tool: currentTool, text: inputText, lang: targetLang }) });
+        // const data = await res.json();
+        
+        await new Promise(r => setTimeout(r, 1200 + Math.random() * 800)); // Simulate network latency
+        const result = generateMockResponse(currentTool, inputText, targetLang);
+        const endTime = performance.now();
+        const latency = ((endTime - startTime) / 1000).toFixed(1);
+
+        // Render Result
+        toolOutput.textContent = result;
         statusDot.style.background = 'var(--eth-green)';
-      }, 1500);
-    });
+        statusText.textContent = 'Complete • Model v2.1 (Optimized)';
+        statusTime.textContent = `⏱️ ${latency}s`;
+        statusTime.classList.remove('hidden');
+        btnCopy.disabled = false;
+        btnDownload.disabled = false;
+      } catch (err) {
+        toolOutput.innerHTML = `<div class="error-state">❌ Error: ${err.message}</div>`;
+        statusDot.style.background = 'var(--eth-red)';
+        statusText.textContent = 'Failed • Check connection';
+      } finally {
+        isRunning = false;
+        btnRun.disabled = false;
+        btnRun.innerHTML = '🚀 Run AI';
+      }
+    }
 
-    // Copy to Clipboard
+    // Mock Response Generator (Replace with real API)
+    function generateMockResponse(tool, text, lang) {
+      const templates = {
+        translator: {
+          en: `Translation: "${text.substring(0, 50)}..." → [Target Language Output]`,
+          am: `ትርጉም: "${text.substring(0, 40)}..." → [የታለመ ቋንቋ ውጤት]`,
+          om: `Hiika: "${text.substring(0, 40)}..." → [Afaan Murtaa'e]`,
+          ti: `ትርጉም: "${text.substring(0, 40)}..." → [ናይ ተመልካቺ ቋንቋ]`
+        },
+        summarizer: `✅ Summary: \n• Main point extracted\n• Key details preserved\n• Contextually adapted for ${lang === 'am' ? 'Amharic' : lang === 'om' ? 'Oromo' : 'English'} readers.`,
+        writer: `📝 Draft generated with ${document.getElementById('writer-tone')?.value || 'neutral'} tone:\n"${text} is now structured with proper formatting, culturally appropriate phrasing, and clear call-to-action."`,
+        speech: `🔊 Audio generated successfully!\nDuration: ~4s • Format: MP3 • Size: 62KB\n[Audio playback UI would render here]`,
+        label: `🏷️ Auto-categorized: \n• Sentiment: Neutral/Positive\n• Topic: General/Education\n• Language: ${lang === 'am' ? 'Amharic' : 'Mixed'}\n✅ Ready for export.`
+      };
+      return templates[tool]?.[lang] || templates[tool] || 'Processing complete. Check output above.';
+    }
+
+    // ========== COPY & DOWNLOAD ==========
     btnCopy.addEventListener('click', () => {
-      navigator.clipboard.writeText(output.textContent).then(() => {
-        btnCopy.textContent = '✅ Copied!';
-        setTimeout(() => btnCopy.textContent = '📋 Copy', 2000);
-      });
+      navigator.clipboard.writeText(toolOutput.textContent).then(() => showToast('✅ Copied to clipboard'));
     });
 
-    // Cursor (Same as index)
+    btnDownload.addEventListener('click', () => {
+      const blob = new Blob([toolOutput.textContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `aitibeb-${currentTool}-${Date.now()}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      showToast('⬇️ Downloaded');
+    });
+
+    // ========== TOAST ==========
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ========== CURSOR ==========
     const cursor = document.querySelector('.eth-cursor');
     let mx=0,my=0,cx=0,cy=0;
     document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
     (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
-    document.querySelectorAll('a,button,textarea,.chip').forEach(el=>{
+    document.querySelectorAll('a,button,input,textarea,select,tool-btn').forEach(el=>{
       el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
       el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
     });
