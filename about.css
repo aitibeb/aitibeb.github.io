@@ -379,4 +379,63 @@ h2 {
 }
 .contact-card h2 { margin-bottom: 0.8rem; }
 .contact-card > p {
-  color: var
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.contact-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.contact-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: var(--transition);
+}
+.contact-option:hover {
+  border-color: var(--eth-green);
+  transform: translateY(-2px);
+}
+.contact-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+.contact-option strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.contact-option p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+.contact-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-layout { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .about-hero h1 { font-size: 1.8rem; }
+  .mission-amharic { font-size: 1rem; }
+  .timeline { padding-left: 1.5rem; }
+  .team-grid, .principles-grid, .roadmap-grid, .press-grid { grid-template-columns: 1fr; }
+  .partners-grid { gap: 0.8rem; }
+  .partner-logo { padding: 0.6rem 1rem; font-size: 0.9rem; }
+  .contact-options { grid-template-columns: 1fr; }
+  .contact-card { padding: 2rem 1.5rem; }
+}
+@media (max-width: 480px) {
+  h2 { font-size: 1.5rem; }
+  .metric-number { font-size: 2rem; }
+  .roadmap-list li { font-size: 0.9rem; }
+}
