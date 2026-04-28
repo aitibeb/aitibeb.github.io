@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI TiBeB Course: Learn Artificial Intelligence step-by-step in Amharic and local languages.">
-  <title>Course — AI TiBeB </title>
+  <meta name="description" content="AI TiBeB Course: Learn AI step-by-step in Amharic & Ethiopian languages. Free, self-paced, offline-ready.">
+  <title>Learn AI — AI TiBeB • ማሰብ</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="course-page.css">
@@ -20,19 +20,20 @@
   <div class="eth-cursor" aria-hidden="true"></div>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- HEADER (Same as index.html) -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="AI TiBeB Home">
         <span class="logo-icon">✦</span>
         <span class="logo-text">AI TiBeB</span>
-        
+        <span class="logo-sub">ማሰብ</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html#learn">Learn</a>
-        <a href="index.html#tools">Tools</a>
-        <a href="index.html#challenges">Challenges</a>
-        <a href="index.html#community">Community</a>
+        <a href="playground.html">Playground</a>
+        <a href="datasets.html">Datasets</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
       </nav>
       <button class="lang-toggle" aria-label="Toggle language"><span class="lang-active">EN</span> / <span class="lang-alt">አማ</span></button>
     </div>
@@ -40,117 +41,92 @@
 
   <main id="main" class="course-layout">
     
-    <!-- SIDEBAR: Lesson Navigator -->
+    <!-- SIDEBAR -->
     <aside class="course-sidebar">
       <a href="index.html#learn" class="back-link">← Back to Courses</a>
-      <h1 class="course-title">AI Basics</h1>
+      <h1 class="course-title">AI Foundations <span class="amharic">(መሰረታዊ AI)</span></h1>
       
       <div class="progress-container">
-        <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
-        <p class="progress-text">Lesson 2 of 8 • 25% Complete</p>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
+        <p class="progress-text" id="progress-text">0 / 6 Lessons Completed</p>
       </div>
 
-      <nav class="lesson-nav">
-        <ul>
-          <li><a href="#" class="completed"><span class="status">✅</span> 1. What is AI?</a></li>
-          <li><a href="#" class="active"><span class="status">📍</span> 2. How AI Learns</a></li>
-          <li><a href="#"><span class="status">🔒</span> 3. AI vs Traditional Programming</a></li>
-          <li><a href="#"><span class="status">🔒</span> 4. Real Ethiopian Examples</a></li>
-          <li><a href="#"><span class="status">🔒</span> 5. Ethics & Bias</a></li>
-          <li><a href="#"><span class="status">🔒</span> 6. Hands-On Exercise</a></li>
-          <li><a href="#"><span class="status">🔒</span> 7. Quiz & Review</a></li>
-          <li><a href="#"><span class="status">🔒</span> 8. Next Steps & Resources</a></li>
-        </ul>
+      <nav class="lesson-nav" id="lesson-nav">
+        <!-- Populated by JS -->
       </nav>
 
       <div class="sidebar-cta">
-        <p>Need help? Join our <a href="index.html#community">Amharic AI Forum</a></p>
+        <p>💡 <strong>Tip:</strong> Complete each lesson to unlock the next. Your progress saves automatically.</p>
       </div>
     </aside>
 
-    <!-- MAIN CONTENT: Lesson Viewer -->
-    <section class="course-content">
+    <!-- MAIN CONTENT -->
+    <section class="course-content" id="course-content">
       <div class="content-header">
-        <h2>Lesson 2: How AI Learns <span class="amharic">(AI እንዴት ይማራል?)</span></h2>
-        <div class="content-tabs">
-          <button class="tab-btn active" data-tab="video">🎥 Watch</button>
-          <button class="tab-btn" data-tab="text">📖 Read</button>
-          <button class="tab-btn" data-tab="activity">🛠️ Activity</button>
-        </div>
+        <div class="phase-badge" id="phase-badge">Phase 1</div>
+        <h2 id="lesson-title">Loading...</h2>
       </div>
 
-      <div class="tab-panel active" id="video">
+      <div class="content-tabs">
+        <button class="tab-btn active" data-tab="read">📖 Read</button>
+        <button class="tab-btn" data-tab="watch">🎥 Watch</button>
+        <button class="tab-btn" data-tab="practice">🛠️ Practice</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-read">
+        <article id="lesson-content" class="lesson-text"></article>
+      </div>
+      <div class="tab-panel" id="tab-watch">
         <div class="video-placeholder">
           <div class="play-icon">▶</div>
-          <p>Lesson Video • 4 mins • Amharic with English subtitles</p>
-          <p class="video-note">💡 Works on low bandwidth • Downloadable for offline</p>
+          <p id="video-desc">Lesson video loads here</p>
+          <p class="video-note">💡 Works on 2G/3G • Downloadable for offline</p>
         </div>
       </div>
-
-      <div class="tab-panel" id="text">
-        <article class="lesson-text">
-          <h3>Understanding Machine Learning</h3>
-          <p>AI doesn't "know" things like humans do. Instead, it learns by finding <strong>patterns in data</strong>. Think of it like teaching a child: you show many examples, they notice similarities, and gradually make predictions.</p>
-          
-          <div class="concept-box">
-            <strong>🔑 Key Concept:</strong> Training Data → Pattern Recognition → Prediction
-          </div>
-
-          <div class="example-box">
-            <h4>🇪🇹 Ethiopian Example</h4>
-            <p>Imagine teaching someone to recognize <span class="amharic">እንጀራ</span> (Injera). You don't give them a dictionary definition. You show them photos, textures, and even smells. After enough examples, they can identify it anywhere. AI works the same way — but with numbers instead of senses.</p>
-          </div>
-
-          <ul class="lesson-tips">
-            <li>📌 AI learns from examples, not rules</li>
-            <li>📌 More diverse data = better predictions</li>
-            <li>📌 Ethiopian AI needs Ethiopian data</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="tab-panel" id="activity">
-        <div class="activity-card">
-          <h3>🧩 Try It: Pattern Sorting Game</h3>
-          <p>Drag words into categories to see how a simple classifier learns. This simulates how AI organizes Amharic sentences by topic.</p>
-          <button class="btn btn-primary">Launch Interactive Demo</button>
-          <p class="activity-note">⚠️ Requires JavaScript • Works offline once loaded</p>
-        </div>
+      <div class="tab-panel" id="tab-practice">
+        <div class="practice-card" id="practice-content"></div>
       </div>
 
       <div class="content-footer">
-        <a href="#" class="btn btn-outline">← Previous Lesson</a>
-        <a href="#" class="btn btn-primary">Mark Complete & Next →</a>
+        <button id="btn-prev" class="btn btn-outline" disabled>← Previous</button>
+        <button id="btn-complete" class="btn btn-primary">✅ Mark Complete</button>
+        <button id="btn-next" class="btn btn-primary" disabled>Next →</button>
       </div>
 
       <div class="download-resources">
-        <h3>📥 Downloadable Resources</h3>
-        <div class="resource-list">
-          <a href="#" class="resource-link">📄 Lesson Notes (PDF - Amharic/English)</a>
-          <a href="#" class="resource-link">🔊 Audio Version (MP3 - 12MB)</a>
-          <a href="#" class="resource-link">💻 Offline Package (ZIP - 8MB)</a>
-        </div>
+        <h3>📥 Free Resources for This Lesson</h3>
+        <div id="resources-list" class="resource-list"></div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER (Same as index.html) -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo logo-small"><span class="logo-icon">✦</span> AI TiBeB</a>
         <p class="footer-tagline"><span class="amharic">የኢትዮጵያ ቋንቋዎች ላይ የተመሰረተ AI</span><br>Inclusive artificial intelligence for Ethiopia and beyond.</p>
       </div>
-      <div class="footer-links"><h4>Learn</h4><ul><li><a href="index.html#learn">All Courses</a></li><li><a href="#">Amharic Basics</a></li><li><a href="#">Oromo Resources</a></li><li><a href="#">Request a Language</a></li></ul></div>
-      <div class="footer-links"><h4>Tools</h4><ul><li><a href="index.html#tools">Everyday Tools</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Creator Studio</a></li><li><a href="#">API Access</a></li></ul></div>
-      <div class="footer-links"><h4>Community</h4><ul><li><a href="index.html#community">Forum</a></li><li><a href="#">Contribute Data</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Events</a></li></ul></div>
+      <div class="footer-links"><h4>Platform</h4><ul><li><a href="index.html#learn">Learn</a></li><li><a href="playground.html">Playground</a></li><li><a href="datasets.html">Datasets</a></li><li><a href="community.html">Community</a></li></ul></div>
+      <div class="footer-links"><h4>Resources</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#contact">Contact</a></li><li><a href="about.html#press">Press Kit</a></li><li><a href="about.html#ethics">Ethics Policy</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter/X</a></li><li><a href="mailto:hello@aitibeb.et">Email</a></li></ul></div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a></p>
-      <p class="footer-amharic"><span class="amharic"> በኢትዮጵያ የተሰራ </span> • Built with ❤️ in Ethiopia</p>
+      <p>© <span id="year"></span> AI TiBeB • <a href="#">Privacy</a> • <a href="#">Terms</a></p>
+      <p class="footer-amharic"><span class="amharic">የተሰራው በኢትዮጵያ ለኢትዮጵያ</span> • Built with ❤️ in Ethiopia</p>
     </div>
   </footer>
+
+  <!-- COMPLETION MODAL -->
+  <dialog id="completion-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-icon">🎉</span>
+      <h2>Lesson Complete!</h2>
+      <p id="modal-message">You've unlocked the next lesson. Keep going!</p>
+      <button id="modal-close" class="btn btn-primary">Continue Learning →</button>
+    </div>
+  </dialog>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -159,25 +135,253 @@
       a.textContent = b.textContent; b.textContent = t;
     });
 
-    // Course Tabs
-    document.querySelectorAll('.content-tabs .tab-btn').forEach(btn => {
+    // ========== COURSE DATA ==========
+    const STORAGE_KEY = 'aitibeb_course_v1';
+    let lessons = [
+      {
+        id: 1, phase: 'Phase 1: AI Basics', title: '1. What is AI? (AI ምንድን ነው?)', status: 'completed',
+        content: `
+          <h3>Understanding Artificial Intelligence</h3>
+          <p>AI isn't magic. It's simply <strong>systems that learn from data</strong> to make decisions or predictions. Unlike traditional software (where we write strict rules), AI finds patterns in examples.</p>
+          <div class="concept-box"><strong>🔑 Key Idea:</strong> AI = Data + Patterns + Predictions</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Think of teaching someone to recognize <span class="amharic">በርበሬ</span> (Berbere) spice. You don't give a chemical formula. You show photos, smells, and dishes. After enough examples, they recognize it anywhere. AI learns the same way.</p></div>
+          <ul class="lesson-tips"><li>📌 AI learns from examples, not fixed rules</li><li>📌 Quality of data matters more than algorithm complexity</li><li>📌 Ethiopia needs Ethiopian data to avoid bias</li></ul>
+        `,
+        video: 'Intro to AI in Amharic (4:12) • Covers history, types, and real-world examples.',
+        practice: '<strong>Check Understanding:</strong> In 1-2 sentences, explain AI to a friend using a local Ethiopian example.',
+        resources: [
+          { name: '📄 AI Basics Cheat Sheet (Amharic/English)', url: 'https://huggingface.co/datasets/masakhane/amh_nlp', size: '1.2MB', type: 'PDF' },
+          { name: '🔗 Mozilla AI Guide (Free)', url: 'https://foundation.mozilla.org/en/what-we-build/decentralization/ai/', size: 'External', type: 'Link' }
+        ]
+      },
+      {
+        id: 2, phase: 'Phase 1: AI Basics', title: '2. How Machines Learn (የAI መማር)', status: 'locked',
+        content: `
+          <h3>Training vs. Inference</h3>
+          <p>AI goes through two stages: <strong>Training</strong> (learning from data) and <strong>Inference</strong> (using what it learned). Training is like studying for an exam. Inference is taking the test.</p>
+          <div class="concept-box"><strong>🔑 Key Idea:</strong> Model + Data → Training → Learned Model → New Data → Prediction</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Training a model to predict coffee prices: You feed it past market data (rainfall, harvest, transport costs). The model finds patterns. Later, it predicts prices using current conditions.</p></div>
+          <ul class="lesson-tips"><li>📌 More diverse training data = better real-world performance</li><li>📌 Small, clean datasets often beat huge, messy ones</li><li>📌 Always test AI with local, unseen examples</li></ul>
+        `,
+        video: 'Machine Learning Explained Simply (6:45) • Visual breakdown of training, testing, and deployment.',
+        practice: '<strong>Activity:</strong> Identify 3 types of data you could collect to train an AI for predicting local crop yields.',
+        resources: [
+          { name: '📊 Open Ethiopian Agricultural Dataset', url: 'https://data.humdata.org/dataset/ethiopia-agriculture', size: '45MB', type: 'CSV' },
+          { name: '🎥 Google AI Crash Course (Free)', url: 'https://developers.google.com/machine-learning/crash-course', size: 'External', type: 'Video' }
+        ]
+      },
+      {
+        id: 3, phase: 'Phase 2: Practical AI', title: '3. AI vs Traditional Programming (ልዩነታቸው)', status: 'locked',
+        content: `
+          <h3>Rules vs. Patterns</h3>
+          <p><strong>Traditional Code:</strong> If it rains, show umbrella icon.<br><strong>AI:</strong> Looks at 10,000 weather photos + historical data, predicts when people usually need umbrellas, even if conditions are unusual.</p>
+          <div class="concept-box"><strong>🔑 Key Idea:</strong> Traditional = Human writes rules. AI = Human writes data, machine finds rules.</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Writing a rule for Amharic grammar is nearly impossible (exceptions everywhere). AI learns grammar by reading millions of correct sentences, then adapts to new inputs.</p></div>
+          <ul class="lesson-tips"><li>📌 Use AI when rules are fuzzy or complex</li><li>📌 Use traditional code when precision & transparency are critical</li><li>📌 Hybrid systems often work best</li></ul>
+        `,
+        video: 'Code vs AI: When to Use What (5:20) • Decision tree & real examples.',
+        practice: '<strong>Think:</strong> Name one task better solved by traditional code, and one better solved by AI in Ethiopian contexts.',
+        resources: [
+          { name: '📄 Hybrid AI Systems Guide', url: '#', size: '2.8MB', type: 'PDF' },
+          { name: '💻 Interactive Comparison Tool', url: '#', size: 'Browser', type: 'Web App' }
+        ]
+      },
+      {
+        id: 4, phase: 'Phase 2: Practical AI', title: '4. Data Collection & Ethics (ዳታ እና ስነ-ምግባር)', status: 'locked',
+        content: `
+          <h3>Garbage In, Garbage Out</h3>
+          <p>AI is only as good as its data. In Ethiopia, many AI projects fail because they train on foreign data or ignore cultural context.</p>
+          <div class="concept-box"><strong>🔑 Key Idea:</strong> Ethical data = Consent + Diversity + Transparency + Local Ownership</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Using Western voice data to train Amharic speech recognition fails. Accent, tone, and background noise differ. Always collect from local speakers with clear consent.</p></div>
+          <ul class="lesson-tips"><li>📌 Always get informed consent for data collection</li><li>📌 Include underrepresented dialects & regions</li><li>📌 Store data locally when possible</li></ul>
+        `,
+        video: 'Ethical AI in Africa (7:15) • Case studies, consent frameworks, and community ownership.',
+        practice: '<strong>Checklist:</strong> Review your data collection plan against the 4 pillars: Consent, Diversity, Transparency, Ownership.',
+        resources: [
+          { name: '📜 UNESCO AI Ethics Framework', url: 'https://en.unesco.org/artificial-intelligence/ethics', size: 'External', type: 'PDF' },
+          { name: '📋 Community Consent Template (Amharic/English)', url: '#', size: '0.8MB', type: 'DOCX' }
+        ]
+      },
+      {
+        id: 5, phase: 'Phase 3: Building', title: '5. Your First Local AI Model (መጀመሪያ ሞዴል)', status: 'locked',
+        content: `
+          <h3>No GPU Required</h3>
+          <p>You can train simple, useful models right in your browser using tools like <strong>Teachable Machine</strong> or <strong>HuggingFace Spaces</strong>. No expensive hardware needed.</p>
+          <div class="concept-box"><strong>🔑 Key Idea:</strong> Start small → Train on 50-100 local examples → Test → Improve → Scale</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Build a model that classifies common Ethiopian plant leaves. Take 20 photos per plant. Upload to a free platform. Get >80% accuracy in 10 minutes.</p></div>
+          <ul class="lesson-tips"><li>📌 Quality > Quantity in early models</li><li>📌 Test on unseen local examples, not training data</li><li>📌 Share your model with the community</li></ul>
+        `,
+        video: 'Browser-Based Model Training (8:30) • Step-by-step walkthrough using free tools.',
+        practice: '<strong>Action:</strong> Create a simple image/text classifier using your own local examples. Share results in the community forum.',
+        resources: [
+          { name: '🛠️ Teachable Machine (Free)', url: 'https://teachablemachine.withgoogle.com/', size: 'Browser', type: 'Tool' },
+          { name: '📚 Quick Start Guide for Local AI', url: '#', size: '3.1MB', type: 'PDF' }
+        ]
+      },
+      {
+        id: 6, phase: 'Phase 3: Building', title: '6. Next Steps & Community 🌍', status: 'locked',
+        content: `
+          <h3>You're Ready to Build</h3>
+          <p>You've completed the AI Foundations course. Now it's time to apply what you've learned, collaborate, and contribute to Ethiopia's AI ecosystem.</p>
+          <div class="concept-box"><strong>🔑 Next Steps:</strong> Join community → Pick a project → Share openly → Iterate with feedback</div>
+          <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Start small: translate a tool, label 100 sentences, host a study group, or build a simple app. Every contribution matters.</p></div>
+          <ul class="lesson-tips"><li>📌 Open-source everything you build</li><li>📌 Document in Amharic + English</li><li>📌 Mentor others when you can</li></ul>
+        `,
+        video: 'Community Projects Showcase (6:00) • Real Ethiopian AI projects & how to join.',
+        practice: '<strong>Final Step:</strong> Introduce yourself in the AI TiBeB Community Forum and share what you want to build next.',
+        resources: [
+          { name: '🎓 Certificate of Completion', url: '#', size: '0.5MB', type: 'PDF' },
+          { name: '💬 AI TiBeB Community Forum', url: 'community.html', size: 'Online', type: 'Link' }
+        ]
+      }
+    ];
+
+    // ========== STATE MANAGEMENT ==========
+    let currentId = 1;
+
+    function loadProgress() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        lessons = lessons.map(l => ({ ...l, status: parsed[l.id] || l.status }));
+      }
+      // Find first non-completed or default to 1
+      const active = lessons.find(l => l.status === 'active');
+      currentId = active ? active.id : 1;
+      renderAll();
+    }
+
+    function saveProgress() {
+      const map = {};
+      lessons.forEach(l => { if(l.status !== 'locked') map[l.id] = l.status; });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
+    }
+
+    function renderSidebar() {
+      const nav = document.getElementById('lesson-nav');
+      nav.innerHTML = '';
+      lessons.forEach(l => {
+        const isLocked = l.status === 'locked';
+        const isActive = l.id === currentId;
+        const isCompleted = l.status === 'completed';
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="#" class="lesson-item ${isLocked ? 'locked' : ''} ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}" data-id="${l.id}">
+            <span class="status-icon">${isCompleted ? '✅' : isActive ? '🔵' : '🔒'}</span>
+            <span class="title">${l.title.split('. ')[1] || l.title}</span>
+          </a>
+        `;
+        if (!isLocked) {
+          li.querySelector('a').addEventListener('click', (e) => {
+            e.preventDefault();
+            currentId = l.id;
+            renderAll();
+          });
+        }
+        nav.appendChild(li);
+      });
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const completed = lessons.filter(l => l.status === 'completed').length;
+      const total = lessons.length;
+      const pct = Math.round((completed / total) * 100);
+      document.getElementById('progress-fill').style.width = `${pct}%`;
+      document.getElementById('progress-text').textContent = `${completed} / ${total} Lessons Completed`;
+    }
+
+    function renderContent() {
+      const lesson = lessons.find(l => l.id === currentId);
+      document.getElementById('phase-badge').textContent = lesson.phase;
+      document.getElementById('lesson-title').innerHTML = lesson.title;
+      document.getElementById('lesson-content').innerHTML = lesson.content;
+      document.getElementById('video-desc').textContent = lesson.video;
+      document.getElementById('practice-content').innerHTML = lesson.practice;
+      
+      // Resources
+      const resList = document.getElementById('resources-list');
+      resList.innerHTML = lesson.resources.map(r => `
+        <a href="${r.url}" target="_blank" rel="noopener" class="resource-link">
+          <span class="res-name">${r.name}</span>
+          <span class="res-meta">${r.type} • ${r.size}</span>
+        </a>
+      `).join('');
+
+      // Buttons
+      document.getElementById('btn-prev').disabled = currentId <= 1;
+      document.getElementById('btn-complete').style.display = lesson.status === 'completed' ? 'none' : 'inline-flex';
+      document.getElementById('btn-next').disabled = lesson.status !== 'completed';
+      
+      // Reset tabs
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === 0));
+      document.querySelectorAll('.tab-panel').forEach((panel, i) => panel.classList.toggle('active', i === 0));
+    }
+
+    function renderAll() {
+      renderSidebar();
+      renderContent();
+    }
+
+    // ========== INTERACTIONS ==========
+    document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.content-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
+        document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
       });
     });
 
-    // Cursor (Same as index)
+    document.getElementById('btn-prev').addEventListener('click', () => {
+      if (currentId > 1) { currentId--; renderAll(); }
+    });
+
+    document.getElementById('btn-complete').addEventListener('click', () => {
+      const lesson = lessons.find(l => l.id === currentId);
+      lesson.status = 'completed';
+      
+      // Unlock next
+      const next = lessons.find(l => l.id === currentId + 1);
+      if (next) next.status = 'active';
+      
+      saveProgress();
+      renderAll();
+      
+      // Show modal
+      const modal = document.getElementById('completion-modal');
+      document.getElementById('modal-message').textContent = next 
+        ? `🔓 Unlocked: ${next.title.split('. ')[1]}` 
+        : '🎉 Course Complete! Check the Community tab to share your journey.';
+      modal.showModal();
+    });
+
+    document.getElementById('modal-close').addEventListener('click', () => {
+      document.getElementById('completion-modal').close();
+      const next = lessons.find(l => l.id === currentId + 1);
+      if (next) { currentId = next.id; renderAll(); }
+    });
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+      const next = lessons.find(l => l.id === currentId + 1);
+      if (next && next.status !== 'locked') {
+        currentId = next.id;
+        renderAll();
+      }
+    });
+
+    // Cursor
     const cursor = document.querySelector('.eth-cursor');
     let mx=0,my=0,cx=0,cy=0;
     document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
     (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
-    document.querySelectorAll('a,button,.lesson-nav a,.resource-link').forEach(el=>{
+    document.querySelectorAll('a,button,.lesson-item').forEach(el=>{
       el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
       el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
     });
+
+    // Init
+    loadProgress();
   </script>
 </body>
 </html>
