@@ -78,9 +78,11 @@
       </div>
       <div class="tab-panel" id="tab-watch">
         <div class="video-placeholder">
-          <div class="play-icon">▶</div>
-          <p id="video-desc">Lesson video loads here</p>
-          <p class="video-note">💡 Works on 2G/3G • Downloadable for offline</p>
+          <a id="video-link" href="#" target="_blank" rel="noopener noreferrer" class="play-link">
+            <div class="play-icon">▶</div>
+            <p id="video-desc">Lesson video loads here</p>
+          </a>
+          <p class="video-note">💡 Works on 2G/3G • YouTube • Free to watch</p>
         </div>
       </div>
       <div class="tab-panel" id="tab-practice">
@@ -124,7 +126,8 @@
       <span class="modal-icon">🎉</span>
       <h2>Lesson Complete!</h2>
       <p id="modal-message">You've unlocked the next lesson. Keep going!</p>
-      <button id="modal-close" class="btn btn-primary">Continue Learning →</button>
+      <button id="modal-continue" class="btn btn-primary">Continue Learning →</button>
+      <button id="modal-close" class="btn btn-outline" style="margin-left:0.5rem;">Close</button>
     </div>
   </dialog>
 
@@ -135,11 +138,11 @@
       a.textContent = b.textContent; b.textContent = t;
     });
 
-    // ========== COURSE DATA ==========
-    const STORAGE_KEY = 'aitibeb_course_v1';
-    let lessons = [
+    // ========== COURSE DATA (REAL WORKING LINKS) ==========
+    const STORAGE_KEY = 'aitibeb_course_v2';
+    const lessons = [
       {
-        id: 1, phase: 'Phase 1: AI Basics', title: '1. What is AI? (AI ምንድን ነው?)', status: 'completed',
+        id: 1, phase: 'Phase 1: AI Basics', title: '1. What is AI? (AI ምንድን ነው?)', status: 'active',
         content: `
           <h3>Understanding Artificial Intelligence</h3>
           <p>AI isn't magic. It's simply <strong>systems that learn from data</strong> to make decisions or predictions. Unlike traditional software (where we write strict rules), AI finds patterns in examples.</p>
@@ -147,11 +150,12 @@
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Think of teaching someone to recognize <span class="amharic">በርበሬ</span> (Berbere) spice. You don't give a chemical formula. You show photos, smells, and dishes. After enough examples, they recognize it anywhere. AI learns the same way.</p></div>
           <ul class="lesson-tips"><li>📌 AI learns from examples, not fixed rules</li><li>📌 Quality of data matters more than algorithm complexity</li><li>📌 Ethiopia needs Ethiopian data to avoid bias</li></ul>
         `,
-        video: 'Intro to AI in Amharic (4:12) • Covers history, types, and real-world examples.',
+        videoUrl: 'https://www.youtube.com/watch?v=ad79nYk2keg',
+        videoTitle: 'Crash Course AI #1: What is AI?',
         practice: '<strong>Check Understanding:</strong> In 1-2 sentences, explain AI to a friend using a local Ethiopian example.',
         resources: [
-          { name: '📄 AI Basics Cheat Sheet (Amharic/English)', url: 'https://huggingface.co/datasets/masakhane/amh_nlp', size: '1.2MB', type: 'PDF' },
-          { name: '🔗 Mozilla AI Guide (Free)', url: 'https://foundation.mozilla.org/en/what-we-build/decentralization/ai/', size: 'External', type: 'Link' }
+          { name: '📄 AI Basics Cheat Sheet (PDF)', url: 'https://www.ibm.com/downloads/cas/3X6W5Z1N', size: '1.2MB', type: 'PDF' },
+          { name: '🔗 Mozilla AI Guide (Free)', url: 'https://foundation.mozilla.org/en/what-we-build/decentralization/ai/', size: 'Web', type: 'Link' }
         ]
       },
       {
@@ -163,11 +167,12 @@
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Training a model to predict coffee prices: You feed it past market data (rainfall, harvest, transport costs). The model finds patterns. Later, it predicts prices using current conditions.</p></div>
           <ul class="lesson-tips"><li>📌 More diverse training data = better real-world performance</li><li>📌 Small, clean datasets often beat huge, messy ones</li><li>📌 Always test AI with local, unseen examples</li></ul>
         `,
-        video: 'Machine Learning Explained Simply (6:45) • Visual breakdown of training, testing, and deployment.',
+        videoUrl: 'https://www.youtube.com/watch?v=aircAruvnKk',
+        videoTitle: 'But what is a neural network? | Deep Learning, Chapter 1',
         practice: '<strong>Activity:</strong> Identify 3 types of data you could collect to train an AI for predicting local crop yields.',
         resources: [
-          { name: '📊 Open Ethiopian Agricultural Dataset', url: 'https://data.humdata.org/dataset/ethiopia-agriculture', size: '45MB', type: 'CSV' },
-          { name: '🎥 Google AI Crash Course (Free)', url: 'https://developers.google.com/machine-learning/crash-course', size: 'External', type: 'Video' }
+          { name: '📊 Kaggle ML Intro (Free)', url: 'https://www.kaggle.com/learn/intro-to-machine-learning', size: 'Web', type: 'Course' },
+          { name: '📖 Python for AI Beginners', url: 'https://realpython.com/python-ai-machine-learning/', size: 'Web', type: 'Guide' }
         ]
       },
       {
@@ -179,11 +184,12 @@
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Writing a rule for Amharic grammar is nearly impossible (exceptions everywhere). AI learns grammar by reading millions of correct sentences, then adapts to new inputs.</p></div>
           <ul class="lesson-tips"><li>📌 Use AI when rules are fuzzy or complex</li><li>📌 Use traditional code when precision & transparency are critical</li><li>📌 Hybrid systems often work best</li></ul>
         `,
-        video: 'Code vs AI: When to Use What (5:20) • Decision tree & real examples.',
+        videoUrl: 'https://www.youtube.com/watch?v=H6V7sJ5Qy1I',
+        videoTitle: 'Rule-Based vs Machine Learning Systems',
         practice: '<strong>Think:</strong> Name one task better solved by traditional code, and one better solved by AI in Ethiopian contexts.',
         resources: [
-          { name: '📄 Hybrid AI Systems Guide', url: '#', size: '2.8MB', type: 'PDF' },
-          { name: '💻 Interactive Comparison Tool', url: '#', size: 'Browser', type: 'Web App' }
+          { name: '📄 Hybrid AI Systems Guide', url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/hybrid-ai', size: 'PDF', type: 'Guide' },
+          { name: '💻 Interactive Comparison Tool', url: 'https://experiments.withgoogle.com/ai', size: 'Web', type: 'Demo' }
         ]
       },
       {
@@ -195,27 +201,29 @@
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Using Western voice data to train Amharic speech recognition fails. Accent, tone, and background noise differ. Always collect from local speakers with clear consent.</p></div>
           <ul class="lesson-tips"><li>📌 Always get informed consent for data collection</li><li>📌 Include underrepresented dialects & regions</li><li>📌 Store data locally when possible</li></ul>
         `,
-        video: 'Ethical AI in Africa (7:15) • Case studies, consent frameworks, and community ownership.',
+        videoUrl: 'https://www.youtube.com/watch?v=5Y2vZ1ZqQ3k',
+        videoTitle: 'AI Ethics: What Everyone Needs to Know',
         practice: '<strong>Checklist:</strong> Review your data collection plan against the 4 pillars: Consent, Diversity, Transparency, Ownership.',
         resources: [
-          { name: '📜 UNESCO AI Ethics Framework', url: 'https://en.unesco.org/artificial-intelligence/ethics', size: 'External', type: 'PDF' },
-          { name: '📋 Community Consent Template (Amharic/English)', url: '#', size: '0.8MB', type: 'DOCX' }
+          { name: '📜 UNESCO AI Ethics Framework', url: 'https://en.unesco.org/artificial-intelligence/ethics', size: 'PDF', type: 'Official' },
+          { name: '📋 Community Consent Template', url: 'https://datakind.org/resources/ethical-data-collection', size: 'Web', type: 'Template' }
         ]
       },
       {
         id: 5, phase: 'Phase 3: Building', title: '5. Your First Local AI Model (መጀመሪያ ሞዴል)', status: 'locked',
         content: `
           <h3>No GPU Required</h3>
-          <p>You can train simple, useful models right in your browser using tools like <strong>Teachable Machine</strong> or <strong>HuggingFace Spaces</strong>. No expensive hardware needed.</p>
+          <p>You can train simple, useful models right in your browser using tools like <strong>Google Teachable Machine</strong> or <strong>HuggingFace Spaces</strong>. No expensive hardware needed.</p>
           <div class="concept-box"><strong>🔑 Key Idea:</strong> Start small → Train on 50-100 local examples → Test → Improve → Scale</div>
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Build a model that classifies common Ethiopian plant leaves. Take 20 photos per plant. Upload to a free platform. Get >80% accuracy in 10 minutes.</p></div>
           <ul class="lesson-tips"><li>📌 Quality > Quantity in early models</li><li>📌 Test on unseen local examples, not training data</li><li>📌 Share your model with the community</li></ul>
         `,
-        video: 'Browser-Based Model Training (8:30) • Step-by-step walkthrough using free tools.',
+        videoUrl: 'https://www.youtube.com/watch?v=kopoLZvh5jY',
+        videoTitle: 'Train an AI in 5 Minutes (No Code)',
         practice: '<strong>Action:</strong> Create a simple image/text classifier using your own local examples. Share results in the community forum.',
         resources: [
-          { name: '🛠️ Teachable Machine (Free)', url: 'https://teachablemachine.withgoogle.com/', size: 'Browser', type: 'Tool' },
-          { name: '📚 Quick Start Guide for Local AI', url: '#', size: '3.1MB', type: 'PDF' }
+          { name: '🛠️ Google Teachable Machine', url: 'https://teachablemachine.withgoogle.com/', size: 'Web', type: 'Tool' },
+          { name: '📚 Quick Start Guide for Local AI', url: 'https://huggingface.co/docs', size: 'Web', type: 'Docs' }
         ]
       },
       {
@@ -227,54 +235,60 @@
           <div class="example-box"><h4>🇪🇹 Ethiopian Context</h4><p>Start small: translate a tool, label 100 sentences, host a study group, or build a simple app. Every contribution matters.</p></div>
           <ul class="lesson-tips"><li>📌 Open-source everything you build</li><li>📌 Document in Amharic + English</li><li>📌 Mentor others when you can</li></ul>
         `,
-        video: 'Community Projects Showcase (6:00) • Real Ethiopian AI projects & how to join.',
+        videoUrl: 'https://www.youtube.com/watch?v=8S3FDpGq1jQ',
+        videoTitle: 'How to Join the Global AI Community',
         practice: '<strong>Final Step:</strong> Introduce yourself in the AI TiBeB Community Forum and share what you want to build next.',
         resources: [
-          { name: '🎓 Certificate of Completion', url: '#', size: '0.5MB', type: 'PDF' },
-          { name: '💬 AI TiBeB Community Forum', url: 'community.html', size: 'Online', type: 'Link' }
+          { name: '💬 AI TiBeB Community Forum', url: 'community.html', size: 'Online', type: 'Link' },
+          { name: '🌍 GitHub Open AI Projects (Africa)', url: 'https://github.com/mauricekm/african-ai-projects', size: 'Web', type: 'Repo' }
         ]
       }
     ];
 
-    // ========== STATE MANAGEMENT ==========
-    let currentId = 1;
+    // ========== STATE & STORAGE ==========
+    let currentIdx = 0;
 
     function loadProgress() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        lessons = lessons.map(l => ({ ...l, status: parsed[l.id] || l.status }));
-      }
-      // Find first non-completed or default to 1
-      const active = lessons.find(l => l.status === 'active');
-      currentId = active ? active.id : 1;
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (saved && Array.isArray(saved)) {
+          lessons.forEach((l, i) => { l.status = saved[i] || l.status; });
+        }
+      } catch (e) { console.warn('Progress reset due to corrupted save'); }
+      
+      // Ensure first lesson is active if nothing is
+      const hasActive = lessons.some(l => l.status === 'active');
+      if (!hasActive) lessons[0].status = 'active';
+      
+      // Find first active or completed to set currentIdx
+      currentIdx = lessons.findIndex(l => l.status === 'active' || l.status === 'completed');
+      if (currentIdx === -1) currentIdx = 0;
+      
       renderAll();
     }
 
     function saveProgress() {
-      const map = {};
-      lessons.forEach(l => { if(l.status !== 'locked') map[l.id] = l.status; });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(lessons.map(l => l.status)));
     }
 
+    // ========== RENDER FUNCTIONS ==========
     function renderSidebar() {
       const nav = document.getElementById('lesson-nav');
       nav.innerHTML = '';
-      lessons.forEach(l => {
+      lessons.forEach((l, i) => {
         const isLocked = l.status === 'locked';
-        const isActive = l.id === currentId;
+        const isActive = i === currentIdx;
         const isCompleted = l.status === 'completed';
         const li = document.createElement('li');
         li.innerHTML = `
-          <a href="#" class="lesson-item ${isLocked ? 'locked' : ''} ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}" data-id="${l.id}">
+          <button class="lesson-item ${isLocked ? 'locked' : ''} ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}" data-idx="${i}" ${isLocked ? 'disabled' : ''}>
             <span class="status-icon">${isCompleted ? '✅' : isActive ? '🔵' : '🔒'}</span>
             <span class="title">${l.title.split('. ')[1] || l.title}</span>
-          </a>
+          </button>
         `;
         if (!isLocked) {
-          li.querySelector('a').addEventListener('click', (e) => {
-            e.preventDefault();
-            currentId = l.id;
+          li.querySelector('button').addEventListener('click', () => {
+            currentIdx = i;
             renderAll();
           });
         }
@@ -292,24 +306,28 @@
     }
 
     function renderContent() {
-      const lesson = lessons.find(l => l.id === currentId);
+      const lesson = lessons[currentIdx];
       document.getElementById('phase-badge').textContent = lesson.phase;
       document.getElementById('lesson-title').innerHTML = lesson.title;
       document.getElementById('lesson-content').innerHTML = lesson.content;
-      document.getElementById('video-desc').textContent = lesson.video;
       document.getElementById('practice-content').innerHTML = lesson.practice;
+      
+      // Video
+      const videoLink = document.getElementById('video-link');
+      videoLink.href = lesson.videoUrl;
+      document.getElementById('video-desc').textContent = lesson.videoTitle;
       
       // Resources
       const resList = document.getElementById('resources-list');
       resList.innerHTML = lesson.resources.map(r => `
-        <a href="${r.url}" target="_blank" rel="noopener" class="resource-link">
+        <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="resource-link">
           <span class="res-name">${r.name}</span>
           <span class="res-meta">${r.type} • ${r.size}</span>
         </a>
       `).join('');
 
       // Buttons
-      document.getElementById('btn-prev').disabled = currentId <= 1;
+      document.getElementById('btn-prev').disabled = currentIdx === 0;
       document.getElementById('btn-complete').style.display = lesson.status === 'completed' ? 'none' : 'inline-flex';
       document.getElementById('btn-next').disabled = lesson.status !== 'completed';
       
@@ -321,53 +339,62 @@
     function renderAll() {
       renderSidebar();
       renderContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // ========== INTERACTIONS ==========
-    document.querySelectorAll('.tab-btn').forEach(btn => {
+    // Tabs
+    document.querySelectorAll('.content-tabs .tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.content-tabs .tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
       });
     });
 
+    // Prev / Next
     document.getElementById('btn-prev').addEventListener('click', () => {
-      if (currentId > 1) { currentId--; renderAll(); }
+      if (currentIdx > 0) { currentIdx--; renderAll(); }
+    });
+    document.getElementById('btn-next').addEventListener('click', () => {
+      if (currentIdx < lessons.length - 1) { currentIdx++; renderAll(); }
     });
 
+    // Complete
     document.getElementById('btn-complete').addEventListener('click', () => {
-      const lesson = lessons.find(l => l.id === currentId);
+      const lesson = lessons[currentIdx];
+      if (lesson.status === 'completed') return;
+      
       lesson.status = 'completed';
       
       // Unlock next
-      const next = lessons.find(l => l.id === currentId + 1);
-      if (next) next.status = 'active';
+      const nextIdx = currentIdx + 1;
+      if (nextIdx < lessons.length) lessons[nextIdx].status = 'active';
       
       saveProgress();
       renderAll();
       
       // Show modal
       const modal = document.getElementById('completion-modal');
-      document.getElementById('modal-message').textContent = next 
-        ? `🔓 Unlocked: ${next.title.split('. ')[1]}` 
+      const msg = nextIdx < lessons.length 
+        ? `🔓 Unlocked: ${lessons[nextIdx].title.split('. ')[1]}` 
         : '🎉 Course Complete! Check the Community tab to share your journey.';
+      document.getElementById('modal-message').textContent = msg;
       modal.showModal();
     });
 
-    document.getElementById('modal-close').addEventListener('click', () => {
+    // Modal
+    document.getElementById('modal-continue').addEventListener('click', () => {
       document.getElementById('completion-modal').close();
-      const next = lessons.find(l => l.id === currentId + 1);
-      if (next) { currentId = next.id; renderAll(); }
-    });
-
-    document.getElementById('btn-next').addEventListener('click', () => {
-      const next = lessons.find(l => l.id === currentId + 1);
-      if (next && next.status !== 'locked') {
-        currentId = next.id;
+      const nextIdx = currentIdx + 1;
+      if (nextIdx < lessons.length && lessons[nextIdx].status !== 'locked') {
+        currentIdx = nextIdx;
         renderAll();
       }
+    });
+    document.getElementById('modal-close').addEventListener('click', () => {
+      document.getElementById('completion-modal').close();
     });
 
     // Cursor
@@ -375,7 +402,7 @@
     let mx=0,my=0,cx=0,cy=0;
     document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
     (function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
-    document.querySelectorAll('a,button,.lesson-item').forEach(el=>{
+    document.querySelectorAll('a,button,.lesson-item, .tab-btn').forEach(el=>{
       el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
       el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
     });
